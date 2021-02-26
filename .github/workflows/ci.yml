@@ -54,7 +54,8 @@ jobs:
     - name: Installable
       run: |
         pip install .
-        gitchangelog HEAD^^..HEAD
+        gitchangelog --debug
+        gitchangelog --debug HEAD^^..HEAD
 
     - name: Build dist pkgs
       run: |
