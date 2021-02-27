@@ -70,25 +70,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v2
-        name: Install Python
-        with:
-          python-version: 3.7
-
       # download all artifacts to project dir
       - uses: actions/download-artifact@v2
 
-      - name: Install myself
-        run: |
-          pip install .
-
       - name: Generate changes file
-        env:
-          GITCHANGELOG_CONFIG_FILENAME: "src/gitchangelog/gitchangelog.rc.github.release"
-        run: |
-          bash -c './gitchangelog $(git tag --sort=taggerdate | tail -n2 | head -n1)..${{ env.VERSION }} > CHANGES.md'
+        uses: sarnold/gitchangelog-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN}}
 
-      - name: Create draft release
+      - name: Create release
         id: create_release
         uses: softprops/action-gh-release@v1
         env:

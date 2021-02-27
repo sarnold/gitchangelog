@@ -12,6 +12,7 @@ import pkg_resources
 
 rc_file_name = 'gitchangelog.rc.github.release'
 
+
 if __name__ == "__main__":
 
     if len(sys.argv) == 2:
