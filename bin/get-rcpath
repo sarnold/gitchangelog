@@ -2,33 +2,24 @@
 
 """
 Get the path to gitchangelog.rc.github.release and print it to stdout.
-This is mainly intended for use in CI automation environments; it looks
-for an environment variable named ``pythonLocation`` that points to the
-root of the active Python environment in the GitHub action runners. This
-config is intended for automated release change data in a release action
-on Linux only.
-
+Now uses pkg_resources and accepts one optional argument to return the
+referance .rc file instead of the release file.
 """
 
-import os, fnmatch
+import sys
+import pkg_resources
 
 
-py_root = os.environ.get('pythonLocation', '')
+rc_file_name = 'gitchangelog.rc.github.release'
 
-if not py_root:
-    py_root = '/opt/hostedtoolcache'
+if __name__ == "__main__":
 
+    if len(sys.argv) == 2:
+        if 'reference' in sys.argv[1]:
+            rc_file_name = 'gitchangelog.rc.reference'
+        else:
+            print('Unknown argument')
+            print("usage: %s [--reference]" % sys.argv[0])
+            sys.exit(0)
 
-def find(pattern, path):
-    result = []
-    for root, dirs, files in os.walk(path):
-        for name in files:
-            if fnmatch.fnmatch(name, pattern):
-                result.append(os.path.join(root, name))
-    return result
-
-
-rc_path = find('*.rc.github.release', py_root)
-
-if rc_path != []:
-    print(rc_path[0])
+    print(pkg_resources.resource_filename('gitchangelog', rc_file_name))
