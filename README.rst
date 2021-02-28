@@ -26,8 +26,10 @@ gitchangelog
 **Use your commit log to make a beautiful and configurable changelog file.**
 
 
-.. note:: This fork of gitchangelog now requires the revived/updated pystache
-          repo `available here`_.
+.. note:: The updated version of gitchangelog works best with the updated
+          pystache version `available here`_ (thought it should also ""work"
+          with the last release on pypi).  Please file a github issue here if
+          you encounter any problems.
 
 .. _available here: https://github.com/sarnold/pystache
 
@@ -36,10 +38,10 @@ Features
 ========
 
 - now available as a `github action`_ for use in release workflows
-- fully driven by a config file that can be tailored with your changelog
-  policies. (see for example the `reference configuration file`_)
 - default github release action Markdown config and ``get-rcpath`` script
   to find it (see the `gitchangelog.rc.github.release file`_)
+- fully driven by a config file that can be tailored with your changelog
+  policies. (see for example the `reference configuration file`_)
 - filter out commits/tags based on regexp matching
 - refactor commit summary, or commit body on the fly with replace regexp
 - classify commit message into sections (ie: New, Fix, Changes...)
@@ -73,12 +75,14 @@ Installation
 full package
 ------------
 
-The updated gitchangelog is *not* published on PyPI, thus::
+The updated gitchangelog is *not* published on PyPI, thus use one of the
+following to install the latest gitchangelog on any platform::
 
-  $ pip install git+https://github.com/sarnold/gitchangelog@3.0.5
+  $ pip install -U -f https://github.com/sarnold/gitchangelog/releases/ gitchangelog
 
-\.. is the way to go to install the full package on any platform.
+or use this command to install a specific version::
 
+  $ pip install git+https://github.com/sarnold/gitchangelog.git@3.0.7
 
 The full package provides the ``gitchangelog.py`` executable as well as:
 
@@ -219,12 +223,11 @@ the `changelog of the PyPI page`_.
 Usage
 =====
 
-The `reference configuration file`_ is delivered within
-``gitchangelog`` package and is used to provides defaults to
-settings. If you didn't install the package and used the standalone
-file, then chances are that ``gitchangelog`` can't access these
-defaults values. This is not a problem as long as you provided all the
-required values in your config file.
+The `reference configuration file`_ is delivered within the ``gitchangelog``
+package and is used to provide defaults to settings. If you didn't
+install the package and used the standalone file, then chances are that
+``gitchangelog`` can't access these defaults values. This is not a problem
+as long as you provided all the required values in your config file.
 
 The recommended location for ``gitchangelog`` config file is the root
 of the current git repository with the name ``.gitchangelog.rc``.
