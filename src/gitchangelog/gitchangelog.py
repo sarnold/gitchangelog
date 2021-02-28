@@ -21,12 +21,12 @@ from subprocess import Popen, PIPE
 
 try:
     import pystache
-except ImportError:  ## pragma: no cover
+except ImportError:  # pragma: no cover
     pystache = None
 
 try:
     import mako
-except ImportError:  ## pragma: no cover
+except ImportError:  # pragma: no cover
     mako = None
 
 
@@ -48,7 +48,7 @@ PY3 = PY_VERSION >= 3
 try:
     basestring
 except NameError:
-    basestring = str  ## pylint: disable=redefined-builtin
+    basestring = str  # pylint: disable=redefined-builtin
 
 WIN32 = sys.platform == 'win32'
 if WIN32:
@@ -64,7 +64,7 @@ else:
 ##
 ##
 
-if WIN32 and not PY3:
+if WIN32 and not PY3:  # pragma: PY2
 
     ## Sorry about the following, all this code is to ensure full
     ## compatibility with python 2.7 under windows about sending unicode
