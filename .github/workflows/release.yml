@@ -19,7 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-20.04, macos-latest, windows-latest]
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: [3.6, 3.7, 3.8, 3.9, '3.10']
 
     steps:
     - name: Set git crlf/eol
@@ -46,7 +46,7 @@ jobs:
         tox -e build
 
     - name: Upload artifacts
-      if: matrix.python-version == 3.8 && runner.os == 'Linux'
+      if: matrix.python-version == 3.7 && runner.os == 'Linux'
       uses: actions/upload-artifact@v3
       with:
         name: packages
@@ -78,7 +78,9 @@ jobs:
 
       - name: Create release
         id: create_release
-        uses: softprops/action-gh-release@v1
+        # this action needs an upgrade when available; get some fixes now
+        # using master or reset to v1 and let dependabot check
+        uses: softprops/action-gh-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -90,23 +92,44 @@ jobs:
           files: |
             packages/gitchangelog-*
 
-  # When a GitHub release is made, upload the artifacts to PyPI
-  upload:
-    name: Upload to PyPI
+  docs:
+    name: Release docs
+    needs: [create_release]
     runs-on: ubuntu-20.04
-    needs: [packaging]
 
     steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
     - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
 
-    - uses: actions/download-artifact@v3
+    - name: Add python requirements
+      run: |
+        python -m pip install --upgrade pip
+        pip install tox
 
-    - name: check artifacts
-      run: find . -maxdepth 2 -name gitchangelog-\* -type f
+    - name: Build docs
+      run: |
+        tox -e docs-lint
+        tox -e docs
 
-#    - name: Publish bdist and sdist packages
-#      uses: pypa/gh-action-pypi-publish@release/v1
-#      with:
-#        password: ${{ secrets.PYPI_API_TOKEN }}
-#        packages_dir: packages/
-#        print_hash: true
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ApiDocsHTML
+        path: "docs/_build/html/"
+
+    - name: set nojekyll for github
+      run: |
+        sudo touch docs/_build/html/.nojekyll
+
+    - name: Deploy docs to gh-pages
+      if: ${{ github.event_name == 'push' }}
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: docs/_build/html/
+        single-commit: true
