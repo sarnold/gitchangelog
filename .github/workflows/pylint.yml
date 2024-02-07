@@ -81,7 +81,7 @@ jobs:
 
     # Use the output from the `analyze` step
     - name: Create pylint badge
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       id: badge
       with:
         label: 'Pylint score'
