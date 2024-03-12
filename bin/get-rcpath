@@ -7,7 +7,11 @@ reference .rc file instead of the release file.
 """
 
 import sys
-import pkg_resources
+
+if sys.version_info < (3, 10):
+    import importlib_resources
+else:
+    import importlib.resources as importlib_resources
 
 
 rc_file_name = 'gitchangelog.rc.github.release'
@@ -23,4 +27,7 @@ if __name__ == "__main__":
             print("usage: %s [--reference]" % sys.argv[0])
             sys.exit(0)
 
-    print(pkg_resources.resource_filename('gitchangelog', rc_file_name))
+    # print(pkg_resources.resource_filename('gitchangelog', rc_file_name))
+
+    rc_ref = importlib_resources.files('gitchangelog') / rc_file_name
+    print(str(rc_ref))
