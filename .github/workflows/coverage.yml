@@ -129,7 +129,7 @@ jobs:
       coverage-rounded-display: ${{ steps.coverage.outputs.coverage-rounded-display }}
     env:
       PLATFORM: ubuntu-22.04
-      PYTHON: 3.9
+      PYTHON: '3.11'
       PYTHONIOENCODING: utf-8
       PIP_DOWNLOAD_CACHE: ${{ github.workspace }}/../.pip_download_cache
 
@@ -147,9 +147,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install tox
 
-    - name: Generate coverage and fix pkg name
+    - name: Setup old python for test
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.8
+
+    - name: Generate coverage
       run: |
-        tox -e py
+        tox -e coverage,py38,py311
 
     - name: Code Coverage Summary Report (data)
       uses: irongut/CodeCoverageSummary@v1.3.0

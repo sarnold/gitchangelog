@@ -64,5 +64,5 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: wheels
+        name: gitchangelog-${{ matrix.os }}-${{ matrix.python-version }}
         path: ./dist/*.whl
