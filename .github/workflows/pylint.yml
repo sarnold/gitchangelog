@@ -19,7 +19,7 @@ jobs:
       path: ${{ steps.analyze.outputs.path }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -38,10 +38,10 @@ jobs:
         fi
         echo "branch=${EXPORT_VALUE}" >> $GITHUB_OUTPUT
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.8
+        python-version: 3.9
 
     - name: Install tox
       run: |
@@ -69,12 +69,12 @@ jobs:
     #   - This is a pull request event and the pull actor is the same as the repo owner
     #     if: ${{ ( github.event_name == 'pull_request' && github.actor == github.repository_owner ) || github.ref == 'refs/heads/master' }}
     name: Generate badge image with pylint score
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [pylint]
     if: ${{ github.event_name == 'push' }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         ref: badges
         path: badges

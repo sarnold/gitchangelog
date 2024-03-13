@@ -18,8 +18,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, macos-latest, windows-latest]
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        os: [ubuntu-22.04, macos-latest, windows-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11']
 
     steps:
     - name: Set git crlf/eol
@@ -27,12 +27,12 @@ jobs:
         git config --global core.autocrlf false
         git config --global core.eol lf
 
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -47,7 +47,7 @@ jobs:
 
     - name: Upload artifacts
       if: matrix.python-version == 3.8 && runner.os == 'Linux'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: packages
         path: ./dist/gitchangelog-*
@@ -55,7 +55,7 @@ jobs:
   create_release:
     name: Create Release
     needs: [packaging]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Get version
@@ -64,12 +64,12 @@ jobs:
           echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
           echo ${{ env.VERSION }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       # download all artifacts to project dir
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
 
       - name: Generate changes file
         uses: sarnold/gitchangelog-action@master
@@ -97,9 +97,7 @@ jobs:
     needs: [packaging]
 
     steps:
-    - uses: actions/setup-python@v4
-
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
 
     - name: check artifacts
       run: find . -maxdepth 2 -name gitchangelog-\* -type f

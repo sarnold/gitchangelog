@@ -17,7 +17,10 @@ import textwrap
 import traceback
 from subprocess import PIPE, Popen, TimeoutExpired
 
-import pkg_resources
+if sys.version_info < (3, 8):
+    from importlib_metadata import version
+else:
+    from importlib.metadata import version
 
 try:
     import pystache
@@ -1881,7 +1884,7 @@ def main():
 
 
 DEBUG = ''
-VERSION = pkg_resources.get_distribution('gitchangelog').version
+VERSION = version('gitchangelog')
 
 ##
 ## Launch program
