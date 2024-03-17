@@ -3,4 +3,5 @@ graft docs
 
 include tox.ini README.rst INSTALL.rst CHANGES.rst
 
-global-exclude *~ *.py[cod]
+recursive-exclude __pycache__ *
+recursive-exclude .github *

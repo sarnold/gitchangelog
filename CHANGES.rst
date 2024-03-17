@@ -2,57 +2,25 @@ Changelog
 =========
 
 
-3.1.2-10-g218acba
+3.1.2-12-ge593dc0
 -----------------
+
+Changes
+~~~~~~~
+- Remove merges from .gitchangelog.rc and regenerate file. [Steve
+  Arnold]
+
+  * add 'changes' command to to tox file
 
 Fixes
 ~~~~~
+- Cleanup readme and manifest.in for Github CI. [Steve Arnold]
 - Complete version cleanup, migrate to setuptools_scm, buff some lint.
   [Steve Arnold]
 
   * cleanup old version references, bump pystache to latest Pypi release
   * revert matrix artifacts in ci, upload a single build instance
   * cleanup/migrate flake8 configs and tox file
-
-Other
-~~~~~
-- Ci: bump softprops/action-gh-release from 1 to 2. [dependabot[bot]]
-
-  Bumps [softprops/action-gh-release](https://github.com/softprops/action-gh-release) from 1 to 2.
-  - [Release notes](https://github.com/softprops/action-gh-release/releases)
-  - [Changelog](https://github.com/softprops/action-gh-release/blob/master/CHANGELOG.md)
-  - [Commits](https://github.com/softprops/action-gh-release/compare/v1...v2)
-
-  ---
-  updated-dependencies:
-  - dependency-name: softprops/action-gh-release
-    dependency-type: direct:production
-    update-type: version-update:semver-major
-  ...
-- Ci: bump emibcn/badge-action from 2.0.2 to 2.0.3. [dependabot[bot]]
-
-  Bumps [emibcn/badge-action](https://github.com/emibcn/badge-action) from 2.0.2 to 2.0.3.
-  - [Release notes](https://github.com/emibcn/badge-action/releases)
-  - [Commits](https://github.com/emibcn/badge-action/compare/v2.0.2...v2.0.3)
-
-  ---
-  updated-dependencies:
-  - dependency-name: emibcn/badge-action
-    dependency-type: direct:production
-    update-type: version-update:semver-patch
-  ...
-- Ci: bump emibcn/badge-action from 1.2.4 to 2.0.2. [dependabot[bot]]
-
-  Bumps [emibcn/badge-action](https://github.com/emibcn/badge-action) from 1.2.4 to 2.0.2.
-  - [Release notes](https://github.com/emibcn/badge-action/releases)
-  - [Commits](https://github.com/emibcn/badge-action/compare/v1.2.4...v2.0.2)
-
-  ---
-  updated-dependencies:
-  - dependency-name: emibcn/badge-action
-    dependency-type: direct:production
-    update-type: version-update:semver-major
-  ...
 
 
 3.1.2 (2022-10-30)
