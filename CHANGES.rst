@@ -2,6 +2,59 @@ Changelog
 =========
 
 
+3.1.2-10-g218acba
+-----------------
+
+Fixes
+~~~~~
+- Complete version cleanup, migrate to setuptools_scm, buff some lint.
+  [Steve Arnold]
+
+  * cleanup old version references, bump pystache to latest Pypi release
+  * revert matrix artifacts in ci, upload a single build instance
+  * cleanup/migrate flake8 configs and tox file
+
+Other
+~~~~~
+- Ci: bump softprops/action-gh-release from 1 to 2. [dependabot[bot]]
+
+  Bumps [softprops/action-gh-release](https://github.com/softprops/action-gh-release) from 1 to 2.
+  - [Release notes](https://github.com/softprops/action-gh-release/releases)
+  - [Changelog](https://github.com/softprops/action-gh-release/blob/master/CHANGELOG.md)
+  - [Commits](https://github.com/softprops/action-gh-release/compare/v1...v2)
+
+  ---
+  updated-dependencies:
+  - dependency-name: softprops/action-gh-release
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Ci: bump emibcn/badge-action from 2.0.2 to 2.0.3. [dependabot[bot]]
+
+  Bumps [emibcn/badge-action](https://github.com/emibcn/badge-action) from 2.0.2 to 2.0.3.
+  - [Release notes](https://github.com/emibcn/badge-action/releases)
+  - [Commits](https://github.com/emibcn/badge-action/compare/v2.0.2...v2.0.3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: emibcn/badge-action
+    dependency-type: direct:production
+    update-type: version-update:semver-patch
+  ...
+- Ci: bump emibcn/badge-action from 1.2.4 to 2.0.2. [dependabot[bot]]
+
+  Bumps [emibcn/badge-action](https://github.com/emibcn/badge-action) from 1.2.4 to 2.0.2.
+  - [Release notes](https://github.com/emibcn/badge-action/releases)
+  - [Commits](https://github.com/emibcn/badge-action/compare/v1.2.4...v2.0.2)
+
+  ---
+  updated-dependencies:
+  - dependency-name: emibcn/badge-action
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+
 3.1.2 (2022-10-30)
 ------------------
 
@@ -11,15 +64,10 @@ Changes
 
 Fixes
 ~~~~~
-- Restore missing percentage in coverage display. [Stephen L Arnold]
+- Restore missing percentage in coverage display, update changes.
+  [Stephen L Arnold]
 - Add missing import for exception handler, use correct version.
   [Stephen L Arnold]
-
-Other
-~~~~~
-- Merge pull request #10 from sarnold/pkg-hotfix. [Steve Arnold]
-
-  fix some nits, include CHANGES file in MANIFEST.in
 
 
 3.1.1 (2022-10-03)
@@ -38,14 +86,11 @@ Fixes
     by default pytest cfg
   * make sure pytest does not filter any warnings
   * make sure version attribute matches new version imports
-  * restore missing CHANGES file and workflow env var
+  * retore missing CHANGES file and workflow env var
 
 Other
 ~~~~~
 - Update changes file for release. [Stephen L Arnold]
-- Merge pull request #9 from sarnold/pkg-fixes. [Steve Arnold]
-
-  packaging and warnings cleanup
 
 
 3.1.0 (2022-10-01)
@@ -55,15 +100,6 @@ New
 ~~~
 - Add gh workflow to run sphinx doc build and deploy to gh-pages.
   [Stephen L Arnold]
-
-Other
-~~~~~
-- Merge pull request #8 from sarnold/cfgdoc-cleanup. [Steve Arnold]
-
-  readme and cfg updates
-- Merge pull request #7 from sarnold/docs-workflow. [Steve Arnold]
-
-  Docs workflow
 
 
 3.0.10 (2022-09-26)
@@ -95,12 +131,6 @@ Other
 ~~~~~
 - Update readme/install notes for latest pystache install issues.
   [Stephen L Arnold]
-- Merge pull request #6 from sarnold/docs. [Steve Arnold]
-
-  Add docs build, more cleanup
-- Merge pull request #5 from sarnold/pystache-tmp. [Steve Arnold]
-
-  modernize/refactor source, packaging, tests
 
 
 3.0.9 (2022-04-13)
@@ -112,9 +142,6 @@ Fixes
 
 Other
 ~~~~~
-- Merge pull request #4 from sarnold/test-drivers. [Steve Arnold]
-
-  update test drivers
 - Add python 3.10 to workflow matrix/tox (no more nose, should be Green)
   [Stephen L Arnold]
 - Replace nose with pytest, update tool configs. [Stephen L Arnold]
@@ -137,9 +164,6 @@ Fixes
 Other
 ~~~~~
 - Bump version for patch release, cleanup help msg. [Stephen L Arnold]
-- Merge pull request #3 from sarnold/tiny-fix. [Steve Arnold]
-
-  Tiny doc-string fix
 
 
 3.0.7 (2021-02-28)
@@ -209,23 +233,11 @@ Fixes
 
 Other
 ~~~~~
-- Merge pull request #9 from freepn/bld-fix. [Steve Arnold]
-
-  wheel build fixes
 - Bump version in readme example and drop appveyor badge. [Stephen L
   Arnold]
-- Merge pull request #8 from freepn/windows-ci. [Steve Arnold]
-
-  Windows ci
 - Bump version 3.0.4-3 -> 3.0.4-4 for release. [Stephen L Arnold]
-- Merge pull request #7 from freepn/install-bin. [Steve Arnold]
-
-  re-package get-rcpath helper script, install to bin directory
 - README.rst: add github action feature bullet. [Stephen L Arnold]
 - Bump version and fix README tab whitespace error. [Stephen L Arnold]
-- Merge pull request #6 from freepn/action-feature. [Steve Arnold]
-
-  Action feature: install new gitchangelog.rc file for github release action
 - Bug: revert windows-latest due to env code page errors. [Stephen L
   Arnold]
 - Try msys install latest git to workaround the encoding test issue.
@@ -240,9 +252,6 @@ Other
 - Try msys install latest git to workaround the encoding test issue.
   [Stephen L Arnold]
 - Bump version 3.0.4-1 -> 3.0.4-2 and update readme. [Stephen L Arnold]
-- Merge pull request #5 from freepn/rebase-ci. [Steve Arnold]
-
-  switch travis CI to github actions (leave windows on appveyor)
 - Go back to github windows disabled. [Stephen L Arnold]
 - Try the input git config setting just for kicks. [Stephen L Arnold]
 - Disable windows until the github windows image has more git. [Stephen
@@ -256,9 +265,6 @@ Other
 - Modify CI commands to follow the appveyor pattern. [Stephen L Arnold]
 - Migrate CI to github actions. [Stephen L Arnold]
 - Bump version 3.0.4 -> 3.0.4-1 and fix badge url. [Stephen L Arnold]
-- Merge pull request #3 from freepn/pystache-again. [Steve Arnold]
-
-  restore pystache support for testing, use github url for source
 - Restore pystache support for testing, use github url for source.
   [Stephen L Arnold]
 - Appveyor.yml: cleanup pip install a bit. [Stephen L Arnold]
@@ -266,9 +272,6 @@ Other
   pythons. [Stephen L Arnold]
 - Update INSTALL snippet and add osx to travis build matrix. [Stephen L
   Arnold]
-- Merge pull request #2 from freepn/post-release. [Steve Arnold]
-
-  add support for 'pN' version suffix for post/patch releases
 - README.rst: sync content, add venv/tox sections, remove mustache refs.
   [Stephen L Arnold]
 - Dev: add/document test and ci deps as extras_require, cleanup old
@@ -311,9 +314,6 @@ Other
 - README.rst: swap out upstream badges for local ones. [Stephen L
   Arnold]
 - Disable old CI and add new baseline travis.org cfg. [Stephen L Arnold]
-- Merge pull request #1 from freepn/pep-518. [Steve Arnold]
-
-  make Pep 518 compliant build setup
 - Add legacy tox.ini and .gitignore with python stuffs. [Stephen L
   Arnold]
 - Setup.cfg: fleash out minimum settings for proper PEP 517 install.
