@@ -18,9 +18,9 @@ import traceback
 from subprocess import PIPE, Popen, TimeoutExpired
 
 if sys.version_info < (3, 8):
-    from importlib_metadata import version
+    from importlib_metadata import version as getversion
 else:
-    from importlib.metadata import version
+    from importlib.metadata import version as getversion
 
 try:
     import pystache
@@ -1596,16 +1596,16 @@ def manage_obsolete_options(config):
 
 def parse_cmd_line(usage, description, epilog, exname):
 
-    kwargs = dict(
-        usage=usage,
-        description=description,
-        epilog="\n" + epilog,
-        prog=exname,
-        formatter_class=argparse.RawTextHelpFormatter,
-    )
+    kwargs = {
+        "usage": usage,
+        "description": description,
+        "epilog": "\n" + epilog,
+        "prog": exname,
+        "formatter_class": argparse.RawTextHelpFormatter,
+    }
 
     parser = argparse.ArgumentParser(**kwargs)
-    parser.add_argument("--version", action="version", version=f"gitchangelog {VERSION}")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {VERSION}")
     parser.add_argument(
         '-d',
         '--debug',
@@ -1884,7 +1884,7 @@ def main():
 
 
 DEBUG = ''
-VERSION = version('gitchangelog')
+VERSION = getversion('gitchangelog')
 
 ##
 ## Launch program
