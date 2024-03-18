@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-3.1.2-12-ge593dc0
------------------
+3.1.2 (2024-03-17)
+------------------
 
 Changes
 ~~~~~~~
@@ -14,7 +14,15 @@ Changes
 
 Fixes
 ~~~~~
-- Cleanup readme and manifest.in for Github CI. [Steve Arnold]
+- Use tz-aware timestamps for author/tagger dates iin Python 3.12.
+  [Steve Arnold]
+
+  * silence deprecation warnings and stop breaking tests
+- Cleanup package configs, readme, and changes for package QA. [Steve
+  Arnold]
+
+  * add ignore regex to .gitchangelog.rc to remove ci/dependabot commits
+  * update changes and tox files again
 - Complete version cleanup, migrate to setuptools_scm, buff some lint.
   [Steve Arnold]
 
