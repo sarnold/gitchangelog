@@ -1,7 +1,3 @@
 """
-TODO: add a docstring.
+Create a fancy (markdown or rst) changelog from git log history.
 """
-
-from ._version import __version__
-
-version = __version__

@@ -273,7 +273,7 @@ There are `mustache templates`_ bundled with the default installation
 of gitchangelog. These can be called by providing a simple label to the
 ``mustache(..)`` output_engine, for instance (in your ``.gitchangelog.rc``)::
 
-    output_engine = mustache("markdown")
+  output_engine = mustache("markdown")
 
 Or you could provide your own mustache template by specifying an
 absolute path (or a relative one, starting from the git toplevel of
@@ -281,7 +281,7 @@ your project by default, or if set, the
 ``git config gitchangelog.template-path``
 location) to your template file, for instance::
 
-    output_engine = mustache(".gitchangelog.tpl")
+  output_engine = mustache(".gitchangelog.tpl")
 
 And feel free to copy the bundled templates to use them as bases for
 your own variations. In the source code, these are located in
@@ -303,18 +303,18 @@ powered via `mako`_ python templating system. So `mako`_ output engine
 will only be available if you have `mako`_ module available in your
 python environment.
 
-There are `mako`_ templates bundled with the default installation
-of gitchangelog. These can be called by providing a simple label to the
+There are mako_ templates bundled with the default installation of
+gitchangelog. These can be called by providing a simple label to the
 ``makotemplate(..)`` output_engine, for instance (in your ``.gitchangelog.rc``)::
 
-    output_engine = makotemplate("markdown")
+  output_engine = makotemplate("markdown")
 
 Or you could provide your own mako template by specifying an absolute
 path (or a relative one, starting from the git toplevel of your project
 by default, or if set, the ``git config gitchangelog.template-path``
 location) to your template file, for instance::
 
-    output_engine = makotemplate(".gitchangelog.tpl")
+  output_engine = makotemplate(".gitchangelog.tpl")
 
 And feel free to copy the bundled templates to use them as bases for
 your own variations. In the source code, these are located in
@@ -363,33 +363,33 @@ Merged branches history support
 Commit attribution to a specific version could be tricky. Suppose you have
 this typical merge tree (spot the tags!)::
 
-    * new: something  (HEAD, tag: 0.2, develop)
-    *   Merge tag '0.1.1' into develop
-    |\
-    | * fix: out-of-band hotfix  (tag: 0.1.1)
-    * | chg: continued development
-    |/
-    * fix: something  (tag: 0.1)
-    * first commit  (tag: 0.0.1, master)
+  * new: something  (HEAD, tag: 0.2, develop)
+  *   Merge tag '0.1.1' into develop
+  |\
+  | * fix: out-of-band hotfix  (tag: 0.1.1)
+  * | chg: continued development
+  |/
+  * fix: something  (tag: 0.1)
+  * first commit  (tag: 0.0.1, master)
 
 Here's a minimal draft of gitchangelog to show how commit are
 attributed to versions::
 
-    0.2
-      * new: something.
-      * Merge tag '0.1.1' into develop.
-      * chg: continued development.
+  0.2
+    * new: something.
+    * Merge tag '0.1.1' into develop.
+    * chg: continued development.
 
-    0.1.1
-      * fix: out-of-band hotfix.
+  0.1.1
+    * fix: out-of-band hotfix.
 
-    0.1
-      * fix: something.
+  0.1
+    * fix: something.
 
 
-.. note:: you can remove automatically all merge commit from
-  gitchangelog output by using ``include_merge = False`` in the
-  ``.gitchangelog.rc`` file.
+.. note:: You can automatically remove all merge commits from gitchangelog
+          output by using ``include_merge = False`` in the ``.gitchangelog.rc``
+          file.
 
 
 Use cases
@@ -402,11 +402,11 @@ No sectioning
 If you want to remove sectioning but keep anything else, you should
 probably use::
 
-    section_regexps = [
-        ('', None)
-    ]
+  section_regexps = [
+      ('', None)
+  ]
 
-    subject_process = (strip | ucfirst | final_dot)
+  subject_process = (strip | ucfirst | final_dot)
 
 This will disable sectioning and won't remove the prefixes
 used for sectioning from the commit's summary.
@@ -434,17 +434,17 @@ an existing changelog. Usually this makes sense:
     edition if needed.
 
 
-Generating partial changelog is as simple as ``gitchangelog
-REVLIST``. Examples follows::
+Generating partial changelog is as simple as ``gitchangelog REVLIST``.
+Examples follow::
 
-    ## will output only tags between 0.0.2 (excluded) and 0.0.3 (included)
-    gitchangelog 0.0.2..0.0.3
+  ## will output only tags between 0.0.2 (excluded) and 0.0.3 (included)
+  gitchangelog 0.0.2..0.0.3
 
-    ## will output only tags since 0.0.3 (excluded)
-    gitchangelog ^0.0.3 HEAD
+  ## will output only tags since 0.0.3 (excluded)
+  gitchangelog ^0.0.3 HEAD
 
-    ## will output all tags up to 0.0.3 (included)
-    gitchangelog 0.0.3
+  ## will output all tags up to 0.0.3 (included)
+  gitchangelog 0.0.3
 
 
 Additionally, ``gitchangelog`` can figure out automatically which
@@ -454,12 +454,12 @@ used as if specified on the command line.
 
 Here is an example that fits the current changelog format::
 
-    revs = [
-        Caret(
-            FileFirstRegexMatch(
-                "CHANGELOG.rst",
-                r"(?P<rev>[0-9]+\.[0-9]+(\.[0-9]+))\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n")),
-    ]
+  revs = [
+      Caret(
+          FileFirstRegexMatch(
+              "CHANGELOG.rst",
+              r"(?P<rev>[0-9]+\.[0-9]+(\.[0-9]+))\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n")),
+  ]
 
 This will look into the file ``CHANGELOG.rst`` for the first match of
 the given regex and return the match of the ``rev`` regex sub-pattern
@@ -481,93 +481,93 @@ of your changelog, you might want to insert it directly in your existing
 changelog. This is where ``publish`` parameters will help you. By default
 it is set to ``stdout``, and you might want to set it to::
 
-    publish = FileInsertIntoFirstRegexMatch(
-        "CHANGELOG.rst",
-        r'/(?P<rev>[0-9]+\.[0-9]+(\.[0-9]+)?)\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n/',
-        idx=lambda m: m.start(1)
-    )
+  publish = FileInsertIntoFirstRegexMatch(
+      "CHANGELOG.rst",
+      r'/(?P<rev>[0-9]+\.[0-9]+(\.[0-9]+)?)\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n/',
+      idx=lambda m: m.start(1)
+  )
 
 The full recipe could be::
 
-    OUTPUT_FILE = "CHANGELOG.rst"
-    INSERT_POINT = r"\b(?P<rev>[0-9]+\.[0-9]+)\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n"
-    revs = [
-            Caret(FileFirstRegexMatch(OUTPUT_FILE, INSERT_POINT)),
-            "HEAD"
-    ]
+  OUTPUT_FILE = "CHANGELOG.rst"
+  INSERT_POINT = r"\b(?P<rev>[0-9]+\.[0-9]+)\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n"
+  revs = [
+          Caret(FileFirstRegexMatch(OUTPUT_FILE, INSERT_POINT)),
+          "HEAD"
+  ]
 
-    action = FileInsertAtFirstRegexMatch(
-        OUTPUT_FILE, INSERT_POINT,
-        idx=lambda m: m.start(1)
-    )
+  action = FileInsertAtFirstRegexMatch(
+      OUTPUT_FILE, INSERT_POINT,
+      idx=lambda m: m.start(1)
+  )
 
 
 Alternatively, you can use this other recipe, using ``FileRegexSubst``, that has
 the added advantage of being able to update the unreleased part if you had it already
 generated and need a re-fresh because you added new commits or amended some commits::
 
-    OUTPUT_FILE = "CHANGELOG.rst"
-    INSERT_POINT_REGEX = r'''(?isxu)
-    ^
-    (
-      \s*Changelog\s*(\n|\r\n|\r)        ## ``Changelog`` line
-      ==+\s*(\n|\r\n|\r){2}              ## ``=========`` rest underline
-    )
+  OUTPUT_FILE = "CHANGELOG.rst"
+  INSERT_POINT_REGEX = r'''(?isxu)
+  ^
+  (
+    \s*Changelog\s*(\n|\r\n|\r)        ## ``Changelog`` line
+    ==+\s*(\n|\r\n|\r){2}              ## ``=========`` rest underline
+  )
 
-    (                     ## Match all between changelog and release rev
-        (
-          (?!
-             (?<=(\n|\r))                ## look back for newline
-             %(rev)s                     ## revision
-             \s+
-             \([0-9]+-[0-9]{2}-[0-9]{2}\)(\n|\r\n|\r)   ## date
-               --+(\n|\r\n|\r)                          ## ``---`` underline
-          )
-          .
-        )*
-    )
+  (                     ## Match all between changelog and release rev
+      (
+        (?!
+           (?<=(\n|\r))                ## look back for newline
+           %(rev)s                     ## revision
+           \s+
+           \([0-9]+-[0-9]{2}-[0-9]{2}\)(\n|\r\n|\r)   ## date
+             --+(\n|\r\n|\r)                          ## ``---`` underline
+        )
+        .
+      )*
+  )
 
-    (?P<rev>%(rev)s)
-    ''' % {'rev': r"[0-9]+\.[0-9]+(\.[0-9]+)?"}
+  (?P<rev>%(rev)s)
+  ''' % {'rev': r"[0-9]+\.[0-9]+(\.[0-9]+)?"}
 
-    revs = [
-        Caret(FileFirstRegexMatch(OUTPUT_FILE, INSERT_POINT_REGEX)),
-        "HEAD"
-    ]
+  revs = [
+      Caret(FileFirstRegexMatch(OUTPUT_FILE, INSERT_POINT_REGEX)),
+      "HEAD"
+  ]
 
-    publish = FileRegexSubst(OUTPUT_FILE, INSERT_POINT_REGEX, r"\1\o\g<rev>")
+  publish = FileRegexSubst(OUTPUT_FILE, INSERT_POINT_REGEX, r"\1\o\g<rev>")
 
 
 As a second example, here is the same recipe for mustache markdown format::
 
-    OUTPUT_FILE = "CHANGELOG.rst"
-    INSERT_POINT_REGEX = r'''(?isxu)
-    ^
-    (
-      \s*\#\s+Changelog\s*(\n|\r\n|\r)        ## ``Changelog`` line
-    )
+  OUTPUT_FILE = "CHANGELOG.rst"
+  INSERT_POINT_REGEX = r'''(?isxu)
+  ^
+  (
+    \s*\#\s+Changelog\s*(\n|\r\n|\r)        ## ``Changelog`` line
+  )
 
-    (                     ## Match all between changelog and release rev
-        (
-          (?!
-             (?<=(\n|\r))                ## look back for newline
-             \#\#\s+%(rev)s                     ## revision
-             \s+
-             \([0-9]+-[0-9]{2}-[0-9]{2}\)(\n|\r\n|\r)   ## date
-          )
-          .
-        )*
-    )
+  (                     ## Match all between changelog and release rev
+      (
+        (?!
+           (?<=(\n|\r))                ## look back for newline
+           \#\#\s+%(rev)s                     ## revision
+           \s+
+           \([0-9]+-[0-9]{2}-[0-9]{2}\)(\n|\r\n|\r)   ## date
+        )
+        .
+      )*
+  )
 
-    (?P<tail>\#\#\s+(?P<rev>%(rev)s))
-    ''' % {'rev': r"[0-9]+\.[0-9]+(\.[0-9]+)?"}
+  (?P<tail>\#\#\s+(?P<rev>%(rev)s))
+  ''' % {'rev': r"[0-9]+\.[0-9]+(\.[0-9]+)?"}
 
-    revs = [
-        Caret(FileFirstRegexMatch(OUTPUT_FILE, INSERT_POINT_REGEX)),
-        "HEAD"
-    ]
+  revs = [
+      Caret(FileFirstRegexMatch(OUTPUT_FILE, INSERT_POINT_REGEX)),
+      "HEAD"
+  ]
 
-    publish = FileRegexSubst(OUTPUT_FILE, INSERT_POINT_REGEX, r"\1\o\n\g<tail>")
+  publish = FileRegexSubst(OUTPUT_FILE, INSERT_POINT_REGEX, r"\1\o\n\g<tail>")
 
 
 Contributing
