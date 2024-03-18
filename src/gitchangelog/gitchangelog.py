@@ -5,7 +5,6 @@ from __future__ import absolute_import, print_function
 import argparse
 import collections
 import contextlib
-import datetime
 import errno
 import glob
 import itertools
@@ -15,6 +14,7 @@ import re
 import sys
 import textwrap
 import traceback
+from datetime import datetime, timezone
 from subprocess import PIPE, Popen, TimeoutExpired
 
 if sys.version_info < (3, 8):
@@ -780,7 +780,7 @@ class GitCommit(SubGitObjectMixin):
 
     @property
     def date(self):
-        d = datetime.datetime.utcfromtimestamp(float(self.author_date_timestamp))
+        d = datetime.fromtimestamp(float(self.author_date_timestamp), timezone.utc)
         return d.strftime('%Y-%m-%d')
 
     @property
@@ -806,7 +806,7 @@ class GitCommit(SubGitObjectMixin):
 
     @property
     def tagger_date(self):
-        d = datetime.datetime.utcfromtimestamp(float(self.tagger_date_timestamp))
+        d = datetime.fromtimestamp(float(self.tagger_date_timestamp), timezone.utc)
         return d.strftime('%Y-%m-%d')
 
     def __le__(self, value):
