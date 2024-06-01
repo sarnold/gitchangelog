@@ -758,9 +758,11 @@ class GitCommit(SubGitObjectMixin):
                     setattr(
                         self,
                         "trailer_%s" % key,
-                        prev_value + [value]
-                        if isinstance(prev_value, list)
-                        else [prev_value, value],
+                        (
+                            prev_value + [value]
+                            if isinstance(prev_value, list)
+                            else [prev_value, value]
+                        ),
                     )
         self._trailer_parsed = True
         return getattr(self, label)
@@ -1808,9 +1810,11 @@ def main():
         (True, lambda: gc_rc),
         (
             False,
-            lambda: (os.path.join(repository.toplevel, ".%s.rc" % basename))
-            if not repository.bare
-            else None,
+            lambda: (
+                (os.path.join(repository.toplevel, ".%s.rc" % basename))
+                if not repository.bare
+                else None
+            ),
         ),
     ]:
         changelogrc = fun()
