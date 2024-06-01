@@ -481,7 +481,7 @@ of your changelog, you might want to insert it directly in your existing
 changelog. This is where ``publish`` parameters will help you. By default
 it is set to ``stdout``, and you might want to set it to::
 
-  publish = FileInsertIntoFirstRegexMatch(
+  publish = FileInsertAtFirstRegexMatch(
       "CHANGELOG.rst",
       r'/(?P<rev>[0-9]+\.[0-9]+(\.[0-9]+)?)\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n/',
       idx=lambda m: m.start(1)
