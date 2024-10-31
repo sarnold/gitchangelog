@@ -481,7 +481,7 @@ of your changelog, you might want to insert it directly in your existing
 changelog. This is where ``publish`` parameters will help you. By default
 it is set to ``stdout``, and you might want to set it to::
 
-  publish = FileInsertIntoFirstRegexMatch(
+  publish = FileInsertAtFirstRegexMatch(
       "CHANGELOG.rst",
       r'/(?P<rev>[0-9]+\.[0-9]+(\.[0-9]+)?)\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)\n--+\n/',
       idx=lambda m: m.start(1)
@@ -607,12 +607,10 @@ and ask your question. I won't bite. Promise.
 License
 =======
 
-Copyright (c) 2012-2018 Valentin Lab.
-Copyright (c) 2018-2022 Stephen Arnold
+Licensed under the `BSD License`_ as documented in ``REUSE.toml``.
 
-Licensed under the `BSD License`_.
 
-.. _BSD License: http://raw.github.com/sarnold/gitchangelog/master/LICENSE
+.. _BSD License: LICENSES/
 
 
 .. |ci| image:: https://github.com/sarnold/gitchangelog/actions/workflows/ci.yml/badge.svg

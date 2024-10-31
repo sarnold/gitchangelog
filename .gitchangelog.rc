@@ -232,14 +232,14 @@ include_merge = False
 ##        Outputs directly to standard output
 ##        (This is the default)
 ##
-##   - FileInsertAtFirstRegexMatch(file, pattern, flags, idx=lamda m: m.start())
+##   - FileInsertAtFirstRegexMatch(file, pattern, flags=0, idx=lamda m: m.start())
 ##
 ##        Creates a callable that will parse given file for the given
 ##        regex pattern and will insert the output in the file.
 ##        ``idx`` is a callable that receive the matching object and
 ##        must return a integer index point where to insert the
 ##        the output in the file. Default is to return the position of
-##        the start of the matched string. TODO document flags arg
+##        the start of the matched string.
 ##
 ##   - FileRegexSubst(file, pattern, replace, flags)
 ##
