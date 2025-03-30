@@ -4,9 +4,9 @@
 
 |ci| |release| |badge| |coverage|
 
-|cov| |pylint|
+|pre| |reuse| |cov| |pylint|
 
-|tag| |license| |python|
+|tag| |license| |python| |contributors|
 
 
 **Use your commit log to make a beautiful and configurable changelog file.**
@@ -604,12 +604,46 @@ would show you how to deal with your issue. Otherwise, just send your PR
 and ask your question. I won't bite. Promise.
 
 
-License
-=======
+
+SBOM and license info
+=====================
 
 Licensed under the `BSD License`_ as documented in ``REUSE.toml``.
 
+This project is now compliant with the REUSE Specification Version 3.3,
+and the corresponding license information for all files can be found in
+the ``REUSE.toml`` configuration file with license text(s) in the
+``LICENSES/`` folder.
 
+Related metadata can be (re)generated with the following tools and
+command examples.
+
+* reuse-tool_ - REUSE_ compliance linting and sdist (source files) SBOM generation
+* sbom4python_ - generate SBOM with full dependency chain
+
+Commands
+--------
+
+Use tox to create the environment and run the lint command::
+
+  $ tox -e reuse                      # to run reuse lint   --or--
+  $ tox -e reuse -- spdx > sbom.txt   # generate sdist files sbom
+
+Note you can pass any of the other reuse commands after the ``--`` above.
+
+Use the above environment to generate the full SBOM in text format::
+
+  $ source .tox/reuse/bin/activate
+  $ sbom4python --system --use-pip -o <file_name>.txt
+
+Be patient; the last command above may take several minutes. See the
+doc links above for more detailed information on the tools and
+specifications.
+
+.. _pre-commit: https://pre-commit.com/index.html
+.. _reuse-tool: https://github.com/fsfe/reuse-tool
+.. _REUSE: https://reuse.software/spec-3.3/
+.. _sbom4python: https://github.com/anthonyharrison/sbom4python
 .. _BSD License: LICENSES/
 
 
@@ -637,6 +671,10 @@ Licensed under the `BSD License`_ as documented in ``REUSE.toml``.
     :target: https://github.com/sarnold/gitchangelog/actions/workflows/pylint.yml
     :alt: Pylint score
 
+.. |reuse| image:: https://api.reuse.software/badge/git.fsfe.org/reuse/api
+    :target: https://api.reuse.software/info/git.fsfe.org/reuse/api
+    :alt: REUSE status
+
 .. |license| image:: https://img.shields.io/pypi/l/gitchangelog?color=blue
     :target: https://github.com/sarnold/gitchangelog/blob/master/LICENSE
     :alt: License
@@ -648,3 +686,11 @@ Licensed under the `BSD License`_ as documented in ``REUSE.toml``.
 .. |python| image:: https://img.shields.io/badge/python-3.6+-blue.svg
     :target: https://www.python.org/downloads/
     :alt: Python
+
+.. |pre| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+   :target: https://github.com/pre-commit/pre-commit
+   :alt: pre-commit
+
+.. |contributors| image:: https://img.shields.io/github/contributors/sarnold/gitchangelog
+   :target: https://github.com/sarnold/gitchangelog
+   :alt: Contributors

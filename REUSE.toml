@@ -1,6 +1,11 @@
 version = 1
 
 [[annotations]]
+path = "toxfile.py"
+SPDX-FileCopyrightText = "Copyright (c) 2023 Masen Furer"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
 path = "**"
 SPDX-FileCopyrightText = [
     "2012-2018 Valentin Lab",

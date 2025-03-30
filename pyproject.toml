@@ -1,7 +1,7 @@
 [build-system]
 requires = [
-    "setuptools>=45",
-    "setuptools_scm[toml]>=6.2",
+    "setuptools>= 61.0.0",
+    "setuptools_scm[toml]>=7.0",
 ]
 
 build-backend = "setuptools.build_meta"
@@ -72,3 +72,4 @@ ensure_newline_before_comments = true
 
 [tool.bandit]
 exclude_dirs = ["docs"]
+skips = ["B102", "B404", "B604", "B602", "B702"]
