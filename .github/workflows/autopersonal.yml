@@ -1,0 +1,23 @@
+name: Personal repo automation
+
+on: # yamllint disable-line rule:truthy
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  personalbot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enable auto-approve PRs for personal projects
+        if: ${{ github.event_name == 'pull_request' && github.actor == github.repository_owner }}
+        run: gh pr review --approve "${PR_URL}"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

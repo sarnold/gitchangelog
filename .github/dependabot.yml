@@ -1,13 +1,5 @@
 version: 2
 updates:
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: "python"
-      include: "scope"
-
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -18,7 +10,19 @@ updates:
     labels: ["actions"]
     # only needed for non-default branch
     #target-branch: "develop"
-    ignore:
-      # Offical actions have moving tags like v1
-      # that are used, so they don't need updates here
-      - dependency-name: "actions/*"
+    groups:
+      all-actions:
+        patterns: [ "*" ]
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci:"
+    labels: ["dependencies"]
+    allow:
+      - dependency-name: "all"
+    groups:
+      python-packages:
+        patterns: [ "*" ]
