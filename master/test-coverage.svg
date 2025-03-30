@@ -1,5 +1,5 @@
-<svg width="140.7" height="20" viewBox="0 0 1407 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branch Coverage: 84%">
-  <title>Branch Coverage: 84%</title>
+<svg width="140.7" height="20" viewBox="0 0 1407 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branch Coverage: 80%">
+  <title>Branch Coverage: 80%</title>
   <linearGradient id="a" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
@@ -7,18 +7,14 @@
   <mask id="m"><rect width="1407" height="200" rx="30" fill="#FFF"/></mask>
   <g mask="url(#m)">
     <rect width="1047" height="200" fill="#555"/>
-    <rect width="360" height="200" fill="url(#x)" x="1047"/>
+    <rect width="360" height="200" fill="#DB1" x="1047"/>
     <rect width="1407" height="200" fill="url(#a)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="947" fill="#000" opacity="0.25">Branch Coverage</text>
     <text x="50" y="138" textLength="947">Branch Coverage</text>
-    <text x="1102" y="148" textLength="260" fill="#000" opacity="0.25">84%</text>
-    <text x="1092" y="138" textLength="260">84%</text>
+    <text x="1102" y="148" textLength="260" fill="#000" opacity="0.25">80%</text>
+    <text x="1092" y="138" textLength="260">80%</text>
   </g>
   
-  <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" style="stop-color:#DB1" />
-    <stop offset="100%" style="stop-color:#3C1" />
-  </linearGradient>
 </svg>
