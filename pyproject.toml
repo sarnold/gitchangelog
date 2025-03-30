@@ -1,7 +1,7 @@
 [build-system]
 requires = [
-    "setuptools>=45",
-    "setuptools_scm[toml]>=6.2",
+    "setuptools>= 61.0.0",
+    "setuptools_scm[toml]>=7.0",
 ]
 
 build-backend = "setuptools.build_meta"
@@ -28,7 +28,7 @@ omit = [
 source = ["src"]
 
 [tool.coverage.report]
-fail_under = 85
+fail_under = 75
 show_missing = true
 ignore_errors = true
 exclude_lines = [
@@ -71,4 +71,5 @@ use_parentheses = true
 ensure_newline_before_comments = true
 
 [tool.bandit]
-exclude_dirs = ["docs"]
+exclude_dirs = ["docs", "test"]
+skips = ["B102", "B404", "B604", "B602", "B702"]

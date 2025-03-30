@@ -1,60 +1,29 @@
 name: Release
 
 on:
+  workflow_dispatch:
   push:
     # release on tag push
     tags:
       - '*'
 
+permissions:
+  contents: write
+
 jobs:
-  packaging:
+  build_wheels:
+    name: Build wheels
+    permissions:
+      contents: read
+    uses: ./.github/workflows/ci.yml
 
-    runs-on: ${{ matrix.os }}
-    defaults:
-      run:
-        shell: bash
-    env:
-      PYTHONIOENCODING: utf-8
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-22.04, macos-latest, windows-latest]
-        python-version: ['3.8', '3.9', '3.10', '3.11']
-
-    steps:
-    - name: Set git crlf/eol
-      run: |
-        git config --global core.autocrlf false
-        git config --global core.eol lf
-
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
-      with:
-        python-version: ${{ matrix.python-version }}
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip wheel
-        pip install tox tox-gh-actions
-
-    - name: Build dist pkgs
-      run: |
-        tox -e build
-
-    - name: Upload artifacts
-      if: matrix.python-version == 3.8 && runner.os == 'Linux'
-      uses: actions/upload-artifact@v4
-      with:
-        name: packages
-        path: ./dist/gitchangelog-*
+  build_docs:
+    name: Build docs
+    uses: ./.github/workflows/sphinx.yml
 
   create_release:
     name: Create Release
-    needs: [packaging]
+    needs: [build_wheels, build_docs]
     runs-on: ubuntu-22.04
 
     steps:
@@ -71,40 +40,27 @@ jobs:
       # download all artifacts to project dir
       - uses: actions/download-artifact@v4
 
+      - name: check artifacts
+        run: |
+          ls -l packages/
+
       - name: Generate changes file
-        uses: sarnold/gitchangelog-action@master
+        uses: sarnold/gitchangelog-action@915234f151ceffb7a8c4f76de77e4ae321087b8f  # v1.1.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN}}
 
       - name: Create release
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda  # v2.2.1
+        if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.VERSION }}
-          name: Release ${{ env.VERSION }}
+          name: Release v${{ env.VERSION }}
           body_path: CHANGES.md
           draft: false
           prerelease: false
           files: |
-            packages/gitchangelog-*
-
-  # When a GitHub release is made, upload the artifacts to PyPI
-  upload:
-    name: Upload to PyPI
-    runs-on: ubuntu-20.04
-    needs: [packaging]
-
-    steps:
-    - uses: actions/download-artifact@v4
-
-    - name: check artifacts
-      run: find . -maxdepth 2 -name gitchangelog-\* -type f
-
-#    - name: Publish bdist and sdist packages
-#      uses: pypa/gh-action-pypi-publish@release/v1
-#      with:
-#        password: ${{ secrets.PYPI_API_TOKEN }}
-#        packages_dir: packages/
-#        print_hash: true
+            packages/*.whl
+            packages/*.tar.gz

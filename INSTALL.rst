@@ -8,5 +8,3 @@ If you downloaded the code from git::
 or::
 
   $ pip install -e .[test]
-
-

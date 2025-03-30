@@ -2,7 +2,29 @@ Changelog
 =========
 
 
-3.1.2 (2024-03-17)
+3.2.1.dev5+gbfdbc22.d20250330
+-----------------------------
+
+New
+~~~
+- Add pre-commit config, cleanup bits, update CHANGES.rst. [Stephen L
+  Arnold]
+
+  * move old change data to HISTORY.rst, start CHANGES.rst after v3.0.4
+- Add reuse tool, use reuse cfg and LICENSES dir for compliance.
+  [Stephen Arnold]
+
+Changes
+~~~~~~~
+- Add tox shared env extension, update readme and project files.
+  [Stephen L Arnold]
+- Update workflow action and python version, add base automation.
+  [Stephen L Arnold]
+- Misc config updates, flags arg in publish callable needs discussion.
+  [Stephen Arnold]
+
+
+3.2.0 (2024-03-18)
 ------------------
 
 Changes
@@ -29,6 +51,12 @@ Fixes
   * cleanup old version references, bump pystache to latest Pypi release
   * revert matrix artifacts in ci, upload a single build instance
   * cleanup/migrate flake8 configs and tox file
+- Try a matrix name for v4 workflow artifacts. [Steve Arnold]
+- Replace deprecated pkg_resources and update workflows. [Steve Arnold]
+
+Other
+~~~~~
+- Update CHANGES.rst for release. [Steve Arnold]
 
 
 3.1.2 (2022-10-30)
@@ -44,14 +72,26 @@ Fixes
   [Stephen L Arnold]
 - Add missing import for exception handler, use correct version.
   [Stephen L Arnold]
+- Upgrade workflow actions, add org membercheck to coverage. [Stephen L
+  Arnold]
+
+  * removes a bunch of GH Check annotations/warnings
 
 
 3.1.1 (2022-10-03)
 ------------------
 
+New
+~~~
+- Enable pep8speaks, add config fi;e. [Stephen L Arnold]
+
 Changes
 ~~~~~~~
 - Add readme note about no more Python 2.7 support. [Stephen L Arnold]
+- Extend Popen timeout and wrap in try/except block. [Stephen L Arnold]
+
+  * 15 sec is not long enough on some GH ci runners
+  * follow subprocess docs and kill/drain process output
 
 Fixes
 ~~~~~
@@ -77,6 +117,13 @@ New
 - Add gh workflow to run sphinx doc build and deploy to gh-pages.
   [Stephen L Arnold]
 
+Changes
+~~~~~~~
+- Update readme and both release and local rc files. [Stephen L Arnold]
+
+  * update readme with new upstream pystache pointer, cleanup
+  * release default needs v tag prefix in tag_regexps
+
 
 3.0.10 (2022-09-26)
 -------------------
@@ -92,11 +139,21 @@ New
 
 Changes
 ~~~~~~~
+- Add post-release docs build to release workflow. [Stephen L Arnold]
 - Update readme, reformat license file, cleanup more lint. [Stephen L
   Arnold]
+- Add coverage and pylint ci workflows. [Stephen L Arnold]
+- Modernize/refactor source, packaging, tests. [Stephen L Arnold]
+
+  * remove more py2 cruft/old cfg files, refactor problematic tests
+  * update package deps to point to latest pystache sdist
+  * workaround for upstream pystache version and pypi install issues
+  * update ci workflows and status
 
 Fixes
 ~~~~~
+- Add more tool configs, cleanup some lint, update tox file. [Stephen L
+  Arnold]
 - Use namespace paths for data files, remove symlink. [Stephen L Arnold]
 
   * src layout needs full namespace paths in setup.cfg
@@ -144,6 +201,10 @@ Other
 
 3.0.7 (2021-02-28)
 ------------------
+
+Changes
+~~~~~~~
+- Add/adjust some options in codecov.yml. [Stephen L Arnold]
 
 Fixes
 ~~~~~
@@ -350,6 +411,8 @@ New
 ~~~
 - Template path can now be specified in ``git config``. (fixes #73)
   [Valentin Lab]
+- Support of already compiled regex object in config file. [Valentin
+  Lab]
 - Added ``FileRegexSubst`` to allow updatable incremental recipe.
   [Valentin Lab]
 
@@ -363,6 +426,10 @@ New
   In particular, projects using incremental changelog generation can now
   fully automate the process by using a ``publish`` action that inserts
   new sections in an existing changelog file.
+- Added ``absolute_import`` stance. [Valentin Lab]
+- Added information on single package installation. [Valentin Lab]
+- Major cleaning drived by coverage stats. [Valentin Lab]
+- Add some usefull values in config environment. [Valentin Lab]
 - ``unreleased_version_label`` can now be computed on the fly. [Valentin
   Lab]
 
@@ -370,6 +437,8 @@ New
   more precisely. For instance by using the commit hash or any git
   property.
 - Full tested windows support added. [Valentin Lab]
+- Replaced ``cat`` construct by platform compatible
+  ``file_put_contents(..)``. [Valentin Lab]
 - Reference config file is not anymore required. (fixes #54) [Valentin
   Lab]
 - New ``revs`` config file option allowing dynamically setting target
@@ -379,6 +448,8 @@ New
   prior behavior, you had to know which was the last version prior to
   calling ``gitchangelog``. Now, calling ``gitchangelog`` alone can generate
   the exact last missing part thanks to this new config option.
+- Added ``sha1_short`` to commit data for output engines. (fixes #49)
+  [Valentin Lab]
 - Templates now support direct path to files (fixes #46, fixes #63).
   [Héctor Pablos, Valentin Lab]
 
@@ -400,12 +471,30 @@ Changes
 ~~~~~~~
 - Use tagger date when tags are annotated instead of commit date. (fixes
   #60) [Valentin Lab]
+- Included ``file_put_contents(..)`` in main ``gitchangelog.py``.
+  [Valentin Lab]
+
+  We will need this one in the next commits.
+- Remove usage of shell in git commands. [Valentin Lab]
+- Remove multi-commands in tests to move towards windows compatibility.
+  [Valentin Lab]
+
+  Introduction of a single entrypoint for casting git commands.
 - Removed the need of the ``show`` positional argument. [Valentin Lab]
 - Suppression of the obsolete ``gitchangelog init`` command. [Valentin
   Lab]
+- Use iterators for reducing memory footprint when possible. (fixes #19)
+  [Valentin Lab]
+
+  Note that ``rest_py`` engines will fully leverage iterators in the
+  data structure by outputing content as it is generated, limiting
+  overall footprint even more. Templates engines, on the other end,
+  will render the full changelog in memory anyway before printing it.
 
 Fixes
 ~~~~~
+- Separated tests in multiple files with tailored smaller setups.
+  [Valentin Lab]
 - Support closed or closing pipes on gitchangelog's stdout gracefully.
   [Valentin Lab]
 
@@ -415,6 +504,37 @@ Fixes
 
   Now it is much more graceful and will let the process finish earlier
   without complaining.
+- Remove message for ``assertNoDiff(..)`` as it prevents showing the
+  actual diff. [Valentin Lab]
+- Coverage stances are now compatible with windows. [Valentin Lab]
+- Allow testing with unicode in python 2.7 on windows. [Valentin Lab]
+- Prevent ``IOError (Errno 0)`` in windows with python 2.7 when using
+  codepage 65001. [Valentin Lab]
+
+  This is same problem (and work-around) as
+  http://stackoverflow.com/questions/7078232 . It seems to be a bug in
+  code page 65001 (utf-8) on windows.
+- Force output encoding to 'utf-8' on windows for tests. [Valentin Lab]
+- Protect correctly arguments for cross-platform compatibility.
+  [Valentin Lab]
+- Settings environment variable in a platform compatible way. [Valentin
+  Lab]
+- Avoid writing files with windows endlines in tests. [Valentin Lab]
+
+  This is to prevent double endlines ending when first writing to
+  template, then rendering the template.
+- Windows end of lines must be ignored when diffing. [Valentin Lab]
+- Removed all use of ``difflib`` as it is now integrated in
+  ``unittest``. [Valentin Lab]
+- Windows would not be able to delete git temporary directory in tests.
+  [Valentin Lab]
+- Windows compatibility issues with identifiers using '^'. [Valentin
+  Lab]
+
+  This uncovered an unexpected auto-correcting bug about empty revs
+  specifiers that was fixed.
+- Windows support of ``$tprog``'s calls in tests. [Valentin Lab]
+- Too broad catching of ``ShellError`` exception. [Valentin Lab]
 - Revlist would not work as expected on windows. [Valentin Lab]
 
   Windows does not support single quotes in command line as linux
@@ -495,6 +615,10 @@ New
   changelog output (fixes #26) [Valentin Lab]
 
   See use cases documentations for more information.
+- Use now ``argparse`` for command line parsing. [Valentin Lab]
+
+  This is to prepare introduction of more complex command parsing
+  required by incremental changelog generation for instance.
 
 
 2.3.0 (2015-09-25)
@@ -553,8 +677,12 @@ Fixes
 
 New
 ~~~
+- Added a ``body`` and an sole ``Other`` section to reference tests.
+  [Valentin Lab]
 - Provide support for older config file format. [Valentin Lab]
 - Added 'octobercms-plugin' mako template. (fixes #16) [Valentin Lab]
+- Added a new test to run at least once all provided templates.
+  [Valentin Lab]
 - Added ``body_process`` and ``subject_process`` options. (fixes #22)
   [Valentin Lab]
 
@@ -563,6 +691,19 @@ New
   or the body of the commit before they get included in the changelog.
 - Added ``include_merge`` option to filter out merge commit. [Casey
   Duquette]
+- Support to provide unlimited revisions for ``.log()``. [Valentin Lab]
+- Added a simple changelog format for tests. [Valentin Lab]
+
+  This formats is intended not to change, and to quickly visualize and
+  compare changelogs output.
+- Limit test imprints. [Valentin Lab]
+
+  Removed the specific pre-configured log history from common git case.
+  Offer a common just inited git case.
+- Added a ``raw_renderer`` for test. [Valentin Lab]
+
+  This should be used to restrict the perimeter of tests. This mainly
+  removes the formatting concerns out when needed.
 
 Changes
 ~~~~~~~
@@ -591,6 +732,8 @@ Changes
   that these commits were not included in a release until
   ``sprint-6``. The new method of calculating the changelog will capture
   this and reflect it properly, assigning those changes to ``sprint-6``.
+- Provide a helper to get ``GitCommit`` objects out of ``GitRepos``.
+  [Valentin Lab]
 
 Fixes
 ~~~~~
@@ -602,6 +745,12 @@ Fixes
   [Valentin Lab]
 
   Parse stdout as it's produced by git log by chunks.
+- Replacing standard exception is not so valuable and can hide real
+  info. [Valentin Lab]
+
+  ``wrap`` facility already provide a readable exception message. And
+  the exception could come from other issues than bad identifier. Thus,
+  we should keep the original message.
 
 
 2.1.2 (2014-04-25)
@@ -632,6 +781,7 @@ New
 - Python3 compatibility. [Valentin Lab]
 - Much greater performance on big repository by issuing only one shell
   command for all the commits. (fixes #7) [Valentin Lab]
+- Added a complete reference test. [Valentin Lab]
 - Add ``init`` argument to create a full ``.gitchangelog.rc`` in current
   git repository. [Valentin Lab]
 - Remove optional first argument that could specify the target git
@@ -644,7 +794,7 @@ New
   gitchangelog)``.
 - Use a standard formatting configuration by default. [Valentin Lab]
 
-  A default `standard` way of formatting is used if you don't provide
+  A default standard way of formatting is used if you don't provide
   any configuration file. Additionaly, any option you define in your
   configuration file will be added "on-top" of the default configuration
   values. This can reduce config file size or even remove the need of
@@ -660,6 +810,32 @@ New
 
   Not a justification, but removing user and system wide configuration files
   also greatly simplifies testability.
+
+Changes
+~~~~~~~
+- Moved commit's attribute retrieval out of ``__init__`` towards
+  ``__getattr__``. [Valentin Lab]
+
+  This allows to fetch attribute on demand. This won't have any performance hit yet as
+  all GitCommit will trigger the full fetch at least once for now.
+
+  But we now can initialize the GitCommit attributes with other means. And if we don't use
+  an attribute that wasn't computed, we will spare a ``git show`` call.
+- Code optimization. [Valentin Lab]
+
+  To be noted, we don't seem to need more than identifiers in tags. The
+  upcoming ``__getattr__`` implementation in GitCommit will remove
+  useless ``git show`` computations for these commits it seems.
+- Refactored out the formatting characters from GIT. [Valentin Lab]
+
+  This is to prepare to clean __init__.py from any initilisation process.
+  This will path the way to permit GitCommit being initilised with full
+  values in the ``git log`` scenario coming in a few commits.
+- Move the reversing python code towards git command line code.
+  [Valentin Lab]
+
+  Actual performance improvement is... un-noticeable. Questioning the if this
+  is really a good patch because it introduce usage of advanced (recent) options
 
 Fixes
 ~~~~~
@@ -706,6 +882,10 @@ New
 - Added templating system and examples with ``mustache`` template
   support for restructured text and markdown output format. [David
   Loureiro]
+- Separated creation of the data structure and its rendering. [David
+  Loureiro]
+
+  This commit prepares for any templating system to take back the job of rendering.
 
 Changes
 ~~~~~~~
@@ -725,6 +905,8 @@ New
 - New config file lookup scheme which adds a new possible default
   location ``.gitchangelog.rc`` in the root of the git repository.
   [Valentin Lab]
+- ``GitRepos`` object now give access to directory informations and
+  whole git config read access. [Valentin Lab]
 - Added a new section to get a direct visual of ``gitchangelog`` output.
   Reworded some sentences and did some other minor additions. [Valentin
   Lab]
@@ -747,6 +929,12 @@ New
 ~~~
 - Added a new sample file heavily documented. [Valentin Lab]
 
+Changes
+~~~~~~~
+- Changed default config file name towards ``~/.gitchangelog.rc``
+  instead of ``~/.git-changelog.rc``. [Valentin Lab]
+- Added a link to PyPI in the doc. [Valentin Lab]
+
 Fixes
 ~~~~~
 - ``ignore_regexps`` where bogus and would match only from the beginning
@@ -754,18 +942,92 @@ Fixes
 - Display author date rather than commit date. [Valentin Lab]
 
 
+1.0.1 (2011-06-29)
+------------------
+
+Fixes
+~~~~~
+- ReST title consistency corrected in docs. [Valentin Lab]
+
+
+1.0.0 (2011-06-29)
+------------------
+
+New
+~~~
+- Use ``GITCHANGELOG_CONFIG_FILENAME`` environ variable (if set) to get
+  the default location of config file. [Valentin Lab]
+
+Changes
+~~~~~~~
+- Extracted the main code in a function ``main`` [Valentin Lab]
+
+Fixes
+~~~~~
+- Adds a period to subject message only if last char of subject is alpha
+  numeric. [Valentin Lab]
+
+
+0.1.4 (2011-06-29)
+------------------
+
+Changes
+~~~~~~~
+- Removed ``stdin`` from ``cmd()`` function. [Valentin Lab]
+- Various small code enhancements and cleanup. [Valentin Lab]
+- Forced MULTILINE regexps on ``paragraph_wrap`` which is used to wrap
+  body of commit messages. [Valentin Lab]
+
+Fixes
+~~~~~
+- Fixed the ``body_split_regexp`` to keep title words. [Valentin Lab]
+- Corrected big bad bug due to ``Popen.wait()`` usage instead of
+  ``Popen.communicate()`` [Valentin Lab]
+
+
+0.1.3 (2011-06-29)
+------------------
+
+New
+~~~
+- Can now compare two commit. [Valentin Lab]
+- Added ``LAST`` virtual identifier to get the last element coming from
+  ``HEAD``. [Valentin Lab]
+
+Fixes
+~~~~~
+- Last revision is now displayed in changelog. [Valentin Lab]
+
+  new: dev: added new option ``tag_filter_regexp`` to filter tags we want to use in the changelog.
+
+
 0.1.2 (2011-06-29)
 ------------------
 
 New
 ~~~
+- Sections in changelog are now in the order given in ``git-
+  changelog.rc`` in the ``section_regexps`` option. [Valentin Lab]
 - Added ``body_split_regexp`` option to attempts to format correctly
   body of commit. [Valentin Lab]
 - Use a list of tuple instead of a dict for ``section_regexps`` to be
   able to manage order between section on find match. [Valentin Lab]
+- New ``unreleased_version_label`` option in ``git-changelog.rc`` to
+  change label of not yet released code. [Valentin Lab]
+- Use ``git-changelog`` section in ``git config`` world appropriately.
+  [Valentin Lab]
+
+Changes
+~~~~~~~
+- Commented code to toggle doctest mode. [Valentin Lab]
+- Cosmetic removal of trailing whitespaces. [Valentin Lab]
 
 Fixes
 ~~~~~
+- Doctests were failing on this. [Valentin Lab]
+- Bad sorting of tags (alphanumerical). Changed to commit date sort.
+  [Valentin Lab]
+- Support of empty commit message. [Valentin Lab]
 - ``git`` in later versions seems to fail on ``git config <key>`` with
   errlvl 255, that was not supported. [Valentin Lab]
 - Removed Traceback when there were no tags at all in the current git
@@ -781,4 +1043,16 @@ New
   sample rc file. [Valentin Lab]
 - Added a succint ``--help`` support. [Valentin Lab]
 
+Fixes
+~~~~~
+- Fixed case where exception was thrown if two tags are on the same
+  commit. [Valentin Lab]
 
+
+0.1.0 (2011-06-29)
+------------------
+
+New
+~~~
+- Added ``git-changelog`` which converts git log history to a changelog
+  provided a config file. [Valentin Lab]

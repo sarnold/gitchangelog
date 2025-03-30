@@ -1,6 +1,7 @@
 name: Docs
 on:
   workflow_dispatch:
+  workflow_call:
   pull_request:
   push:
     branches:
@@ -9,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: write
 
     steps:
     - uses: actions/checkout@v4
@@ -17,7 +20,7 @@ jobs:
 
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.9'
+        python-version: '3.12'
 
     - name: Add python requirements
       run: |
@@ -26,7 +29,7 @@ jobs:
 
     - name: Build docs
       run: |
-        #tox -e docs-lint
+        #tox -e ldocs
         tox -e docs
 
     - uses: actions/upload-artifact@v4
@@ -40,9 +43,9 @@ jobs:
 
     - name: Deploy docs to gh-pages
       if: ${{ github.event_name == 'push' }}
-      uses: JamesIves/github-pages-deploy-action@v4
+      uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8  # v4.7.3
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: docs/_build/html/
-        SINGLE_COMMIT: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: docs/_build/html/
+        single-commit: true
