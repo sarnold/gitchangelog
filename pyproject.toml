@@ -71,5 +71,5 @@ use_parentheses = true
 ensure_newline_before_comments = true
 
 [tool.bandit]
-exclude_dirs = ["docs"]
+exclude_dirs = ["docs", "test"]
 skips = ["B102", "B404", "B604", "B602", "B702"]

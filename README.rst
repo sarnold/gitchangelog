@@ -239,7 +239,7 @@ Output Engines
 
 At the end of the configuration file, you'll notice a variable called
 ``output_engine``. By default, it's set to ``rest_py``, which is the
-legacy python engine to produce the `ReSTructured Text` output format
+legacy python engine to produce the ``ReSTructured Text`` output format
 that is shown in above samples. If this engine fits your needs, you
 won't need to fiddle with this option.
 
@@ -249,12 +249,12 @@ the exact output that you need.
 
 As people might have different needs and knowledge, a templating
 system using ``mustache`` is available. ``mustache`` templates are
-provided to render both `ReSTructured Text` or `markdown` formats. If
+provided to render both ``ReSTructured Text`` or ``markdown`` formats. If
 you know ``mustache`` templating, then you could easily add or modify
 these existing templates.
 
 A ``mako`` templating engine is also provided. You'll find also a ``mako``
-template producing the same `ReSTructured Text` output than the legacy one.
+template producing the same ``ReSTructured Text`` output than the legacy one.
 It's provided for reference and/or further tweak if you would rather use `mako`_
 templates.
 
