@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-3.2.1.dev5+gbfdbc22.d20250330
------------------------------
+3.2.1 (2025-03-31)
+------------------
 
 New
 ~~~
@@ -16,6 +16,17 @@ New
 
 Changes
 ~~~~~~~
+- Update .gitchangelog.rc tag filter, regenerate changelog. [Stephen L
+  Arnold]
+
+  * update the readme with a later log example
+- Test coverage bits and windows in CI. [Stephen L Arnold]
+
+  * remove bash-ism from check command to be more platform-agnostic
+- Update changelog bits with new regex and full changes cmd. [Stephen L
+  Arnold]
+
+  * (re)generate CHANGES.rst file
 - Add tox shared env extension, update readme and project files.
   [Stephen L Arnold]
 - Update workflow action and python version, add base automation.
@@ -249,10 +260,6 @@ New
 ~~~
 - Ci: shiny version bump for packaging and add some new wheels. [Stephen
   L Arnold]
-- Re-package get-rcpath helper script, install to bin directory.
-  [Stephen L Arnold]
-- Add default compact reference config for github release action.
-  [Stephen L Arnold]
 
 Changes
 ~~~~~~~
@@ -272,8 +279,32 @@ Other
 ~~~~~
 - Bump version in readme example and drop appveyor badge. [Stephen L
   Arnold]
+
+
+3.0.4-4 (2020-12-09)
+--------------------
+
+New
+~~~
+- Re-package get-rcpath helper script, install to bin directory.
+  [Stephen L Arnold]
+
+Other
+~~~~~
 - Bump version 3.0.4-3 -> 3.0.4-4 for release. [Stephen L Arnold]
 - README.rst: add github action feature bullet. [Stephen L Arnold]
+
+
+3.0.4-3 (2020-12-08)
+--------------------
+
+New
+~~~
+- Add default compact reference config for github release action.
+  [Stephen L Arnold]
+
+Other
+~~~~~
 - Bump version and fix README tab whitespace error. [Stephen L Arnold]
 - Bug: revert windows-latest due to env code page errors. [Stephen L
   Arnold]
@@ -288,6 +319,10 @@ Other
   [Stephen L Arnold]
 - Try msys install latest git to workaround the encoding test issue.
   [Stephen L Arnold]
+
+
+3.0.4-2 (2020-11-20)
+--------------------
 - Bump version 3.0.4-1 -> 3.0.4-2 and update readme. [Stephen L Arnold]
 - Go back to github windows disabled. [Stephen L Arnold]
 - Try the input git config setting just for kicks. [Stephen L Arnold]
@@ -301,6 +336,10 @@ Other
   Arnold]
 - Modify CI commands to follow the appveyor pattern. [Stephen L Arnold]
 - Migrate CI to github actions. [Stephen L Arnold]
+
+
+3.0.4-1 (2020-11-08)
+--------------------
 - Bump version 3.0.4 -> 3.0.4-1 and fix badge url. [Stephen L Arnold]
 - Restore pystache support for testing, use github url for source.
   [Stephen L Arnold]

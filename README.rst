@@ -125,70 +125,86 @@ Here is a small sample of the ``gitchangelog`` changelog at work.
 
 Current ``git log`` output so you can get an idea of the log history::
 
-  * 59f902a Valentin Lab new: dev: sections in changelog are now in the order given in ``gitchangelog.rc`` in the ``section_regexps`` option.  (0.1.2)
-  * c6f72cc Valentin Lab chg: dev: commented code to toggle doctest mode.
-  * a9c38f3 Valentin Lab fix: dev: doctests were failing on this.
-  * 59524e6 Valentin Lab new: usr: added ``body_split_regexp`` option to attempts to format correctly body of commit.
-  * 5883f07 Valentin Lab new: usr: use a list of tuple instead of a dict for ``section_regexps`` to be able to manage order between section on find match.
-  * 7c1d480 Valentin Lab new: dev: new ``unreleased_version_label`` option in ``gitchangelog.rc`` to change label of not yet released code.
-  * cf29c9c Valentin Lab fix: dev: bad sorting of tags (alphanumerical). Changed to commit date sort.
-  * 61d8f80 Valentin Lab fix: dev: support of empty commit message.
-  * eeca31b Valentin Lab new: dev: use ``gitchangelog`` section in ``git config`` world appropriately.
-  * 6142b71 Valentin Lab chg: dev: cosmetic removal of trailing whitespaces
-  * 3c3edd5 Valentin Lab fix: usr: ``git`` in later versions seems to fail on ``git config <key>`` with errlvl 255, that was not supported.
-  * 3f9617d Valentin Lab fix: usr: removed Traceback when there were no tags at all in the current git repository.
-  * e0db9ae Valentin Lab new: usr: added section classifiers (ie: New, Change, Bugs) and updated the sample rc file.  (0.1.1)
-  * 0c66d59 Valentin Lab fix: dev: Fixed case where exception was thrown if two tags are on the same commit.
-  * d2fae0d Valentin Lab new: usr: added a succint ``--help`` support.
+  d7f3f2b (tag: 2.4.0) new: add optional positional argument ``REVLIST`` to allow incremental changelog output (fixes #26)
+  16987b5 new: dev: use now ``argparse`` for command line parsing.
+  8654238 new: doc: added full use case to remove sectionning and reminder in reference file. (fixes #21) !minor
+  e9759c2 (tag: 2.3.0) fix: pkg: coverage would complain about not being able to read config file.
+  55b0a17 fix: nasty hidden bug that would break python3 (fixes #27)
+  dc279a0 fix: pkg: added missing markdown template in ``data_files``. (fixes #35)
+  fc5ce46 (tag: 2.2.1) fix: pkg: ``data_files`` where inconsistently placed depending on way of install. (fixes #34)
+  adbd14d fix: doc: ``ìnclude_merge`` options was wrongly typed in sample config files (reported by @tuukkamustonen, fixed #29).
+  32e77a2 fix: doc: updated doc to reflec that there are no support of windows for now. (fixes #28)
+  b2b154b fix: pkg: update package.
+  4560798 fix: dev: removed obsolete code. !minor
+  ba79b40 chg: doc: rephrasing and minor changes !minor
+  c13d758 fix: remove commit's meta-information footer from changelog output. (fixes #25)
 
 And here is the ``gitchangelog`` output::
 
-  0.1.2 (2011-05-17)
+  2.4.0 (2015-11-10)
   ------------------
 
   New
   ~~~
-  - Sections in changelog are now in the order given in ``git-
-    changelog.rc`` in the ``section_regexps`` option. [Valentin Lab]
-  - Added ``body_split_regexp`` option to attempts to format correctly
-    body of commit. [Valentin Lab]
-  - Use a list of tuple instead of a dict for ``section_regexps`` to be
-    able to manage order between section on find match. [Valentin Lab]
-  - New ``unreleased_version_label`` option in ``gitchangelog.rc`` to
-    change label of not yet released code. [Valentin Lab]
-  - Use ``gitchangelog`` section in ``git config`` world appropriately.
-    [Valentin Lab]
+  - Add optional positional argument ``REVLIST`` to allow incremental
+    changelog output (fixes #26) [Valentin Lab]
 
-  Changes
-  ~~~~~~~
-  - Commented code to toggle doctest mode. [Valentin Lab]
-  - Cosmetic removal of trailing whitespaces. [Valentin Lab]
+    See use cases documentations for more information.
+  - Use now ``argparse`` for command line parsing. [Valentin Lab]
 
-  Fix
-  ~~~
-  - Doctests were failing on this. [Valentin Lab]
-  - Bad sorting of tags (alphanumerical). Changed to commit date sort.
-    [Valentin Lab]
-  - Support of empty commit message. [Valentin Lab]
-  - ``git`` in later versions seems to fail on ``git config <key>`` with
-    errlvl 255, that was not supported. [Valentin Lab]
-  - Removed Traceback when there were no tags at all in the current git
-    repository. [Valentin Lab]
+    This is to prepare introduction of more complex command parsing
+    required by incremental changelog generation for instance.
 
 
-  0.1.1 (2011-04-07)
+  2.3.0 (2015-09-25)
   ------------------
 
-  New
-  ~~~
-  - Added section classifiers (ie: New, Change, Bugs) and updated the
-    sample rc file. [Valentin Lab]
-  - Added a succint ``--help`` support. [Valentin Lab]
+  Fixes
+  ~~~~~
+  - Nasty hidden bug that would break python3 (fixes #27) [Valentin Lab]
 
-  Fix
-  ~~~
-  - Fixed case where exception was thrown if two tags are on the same
-    commit. [Valentin Lab]
+    Actually this bug was revealed by python3 random hashes (thanks to
+    @rschoon for the hint) and could be reproduced on python2.7 with ``-R``
+    mode.
+
+    The ``git show`` command actually will behave differently if given a tag
+    reference and print random unexpected information before using the
+    format string. This would prefix a lot of mess to the first field being
+    asked in the format string.
+
+    And this first field is dependent on the internal order of a dict, and
+    this order is not important as such, and so nothing was done on this
+    part.
+
+    On python2.7, somehow, it would always be the same order that revealed
+    to have no consequence (probably one of the rare field not used in
+    current changelogs).
+
+    Python3 or Python2.7 -R would shuffle this order and then trigger the
+    error whenever this prefix would be appended to actually important
+    fields that went into some further processing (as casted to int for
+    the timestamp for instance).
+
+
+  2.2.1 (2015-06-09)
+  ------------------
+
+  Fixes
+  ~~~~~
+  - Fix: doc: ``ìnclude_merge`` options was wrongly typed in sample config
+    files (reported by @tuukkamustonen, fixed #29). [Valentin Lab]
+  - Updated doc to reflec that there are no support of windows for now.
+    (fixes #28) [Valentin Lab]
+
+    Actually windows will fail on ``subprocess`` call. (see #28)
+  - Remove commit's meta-information footer from changelog output. (fixes
+    #25) [Valentin Lab]
+
+    Some various tools (thinking of Gerrit) might leave some
+    meta-information in the footer of your commit message's body that you do
+    not want to be repeated in your changelog. So all values in the footer
+    are removed (This concerns ``Change-Id``, ``Acked-by``, ``CC``,
+    ``Signed-off-by``, ``Bug`` ... and any other value).
 
 And the rendered full result is directly used to generate the HTML webpage of
 the `changelog of the PyPI page`_.
