@@ -22,14 +22,14 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
 
 # -- Project information -----------------------------------------------------
 
-project = 'gitchangelog'
-copyright = '2024, Stephen L Arnold'
-author = 'Stephen Arnold'
-
 # The full version, including alpha/beta/rc tags
 release = version('gitchangelog')
 # The short X.Y version.
 version = '.'.join(release.split('.')[:2])
+
+project = 'gitchangelog (' + version + ')'
+copyright = '2025, Stephen L Arnold'
+author = 'Stephen Arnold'
 
 # -- General configuration ------------------------------------------------
 
@@ -47,12 +47,13 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
+    'sphinx_git',
     'recommonmark',
 ]
 
 apidoc_module_dir = '../../src/gitchangelog/'
 apidoc_output_dir = 'api'
-apidoc_excluded_paths = ['tests']
+apidoc_excluded_paths = ['test']
 apidoc_separate_modules = True
 
 # Add any paths that contain templates here, relative to this directory.
