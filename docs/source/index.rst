@@ -1,5 +1,5 @@
-Welcome to the gitchangelog documentation!
-==========================================
+The gitchangelog tool
+=====================
 
 .. git_commit_detail::
     :branch:
@@ -9,13 +9,15 @@ Welcome to the gitchangelog documentation!
     :untracked:
 
 .. toctree::
-   :caption: Contents:
-   :maxdepth: 3
+    :maxdepth: 2
+    :caption: Contents:
 
-   README.rst
-   api/modules
-   CHANGES.rst
-
+    readme_include
+    dev/generate-changelog
+    dev/pre-commit-config
+    dev/pre-commit-usage
+    api/modules
+    CHANGES
 
 Indices and tables
 ==================

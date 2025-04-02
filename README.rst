@@ -1,6 +1,6 @@
-===========================================================
- gitchangelog - generate custom changelog from git history
-===========================================================
+=========================
+ Generate your changelog
+=========================
 
 |ci| |release| |badge| |coverage|
 
@@ -9,7 +9,7 @@
 |tag| |license| |python| |contributors|
 
 
-**Use your commit log to make a beautiful and configurable changelog file.**
+**Use your commit log as the data for a nicely formatted and configurable changelog file**
 
 
 This updated fork of gitchangelog is currently tested on Python 3.7+ on
@@ -586,39 +586,55 @@ As a second example, here is the same recipe for mustache markdown format::
   publish = FileRegexSubst(OUTPUT_FILE, INSERT_POINT_REGEX, r"\1\o\n\g<tail>")
 
 
-Contributing
-============
+Making Changes & Contributing
+=============================
 
-Any suggestion or issue is welcome. Pull request are very welcome,
-please check out the guidelines.
+We use the `gitchangelog-action`_ to generate our GitHub Release page, as
+well as the gitchangelog commit message prefix "tag" modifiers to help
+it categorize/filter commits for a tidier changelog. Please use the
+appropriate ACTION modifiers in any Pull Requests.
 
+.. _gitchangelog-action: https://github.com/sarnold/gitchangelog-action
 
-Pull Request Guidelines
------------------------
+This repo is also pre-commit_ enabled for various linting and format
+checks.  The checks run automatically on commit and will fail the
+commit (if not clean) with some checks performing simple file corrections.
 
-You can send any code. I'll look at it and will integrate it myself in
-the code base while leaving you as the commit(s) author. This process
-can take time and it'll take less time if you follow the following
-guidelines:
+If other checks fail on commit, the failure display should explain the error
+types and line numbers. Note you must fix any fatal errors for the
+commit to succeed; some errors should be fixed automatically (use
+``git status`` and ``git diff`` to review any changes).
 
-- check your code with PEP8 or pylint. Try to stick to 80 columns wide.
-- separate your commits per smallest concern
-- each functionality/bugfix commit should contain the code, tests,
-  and doc.
-- each commit should pass the tests (to allow easy bisect)
-- prior minor commit with typographic or code cosmetic changes are
-  very welcome. These should be tagged in their commit summary with
-  ``!minor``.
-- the commit message should follow gitchangelog rules (check the git
-  log to get examples)
-- if the commit fixes an issue or finished the implementation of a
-  feature, please mention it in the summary.
+See the following pages for more information on using gitchangelog and pre-commit.
 
-If you have some questions about guidelines which is not answered here,
-please check the current ``git log``, you might find previous commit that
-would show you how to deal with your issue. Otherwise, just send your PR
-and ask your question. I won't bite. Promise.
+.. inclusion-marker-1
 
+* generate-changelog_
+* pre-commit-config_
+* pre-commit-usage_
+
+.. _generate-changelog:  docs/source/dev/generate-changelog.rst
+.. _pre-commit-config: docs/source/dev/pre-commit-config.rst
+.. _pre-commit-usage: docs/source/dev/pre-commit-usage.rst
+.. inclusion-marker-2
+
+You will need to install pre-commit before contributing any changes;
+installing it using your system's package manager is recommended,
+otherwise install with pip into your usual virtual environment using
+something like::
+
+  $ sudo emerge pre-commit  --or--
+  $ pip install pre-commit
+
+then install it into the repo you just cloned::
+
+  $ git clone https://github.com/sarnold/gitchangelog
+  $ cd gitchangelog/
+  $ pre-commit install
+
+It's usually a good idea to update the hooks to the latest version::
+
+    pre-commit autoupdate
 
 
 SBOM and license info
