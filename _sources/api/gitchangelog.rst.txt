@@ -1,0 +1,18 @@
+gitchangelog package
+====================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   gitchangelog.gitchangelog
+
+Module contents
+---------------
+
+.. automodule:: gitchangelog
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,7 @@
+gitchangelog.gitchangelog module
+================================
+
+.. automodule:: gitchangelog.gitchangelog
+   :members:
+   :show-inheritance:
+   :undoc-members:

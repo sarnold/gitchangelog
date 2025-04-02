@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The gitchangelog tool &#8212; gitchangelog 3.2.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=dcedd534"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="canonical" href="http://127.0.0.1:8000/index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Generate your changelog" href="readme_include.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">gitchangelog 3.2.2 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="readme_include.html">
+    Generate your changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dev/generate-changelog.html">
+    Changelog Generation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dev/pre-commit-config.html">
+    Contents of the .pre-commit-config.yaml file
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dev/pre-commit-usage.html">
+    Using Pre-Commit
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/modules.html">
+    gitchangelog
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="CHANGES.html">
+    Changelog
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="readme_include.html">
+    Generate your changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dev/generate-changelog.html">
+    Changelog Generation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dev/pre-commit-config.html">
+    Contents of the .pre-commit-config.yaml file
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dev/pre-commit-usage.html">
+    Using Pre-Commit
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/modules.html">
+    gitchangelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="CHANGES.html">
+    Changelog
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="the-gitchangelog-tool">
+<h1>The gitchangelog tool<a class="headerlink" href="#the-gitchangelog-tool" title="Link to this heading">#</a></h1>
+<p><dl class="field-list simple">
+<dt class="field-odd">Commit<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/sarnold/gitchangelog/commit/b97a8a4b1023fb12bc8a37ab76efee53d089d9c0">b97a8a4b10</a></p>
+</dd>
+</dl>
+</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme_include.html">Generate your changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#sample">Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#use-cases">Use cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#making-changes-contributing">Making Changes &amp; Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme_include.html#sbom-and-license-info">SBOM and license info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev/generate-changelog.html">Changelog Generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev/generate-changelog.html#git-tags">Git Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/generate-changelog.html#sections">Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-config.html">Contents of the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-config.html#some-hook-descriptions">Some Hook Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-config.html#end-of-file-fixer"><code class="docutils literal notranslate"><span class="pre">end-of-file-fixer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-config.html#trailing-whitespace"><code class="docutils literal notranslate"><span class="pre">trailing-whitespace</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-config.html#mixed-line-ending"><code class="docutils literal notranslate"><span class="pre">mixed-line-ending</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-config.html#check-yaml"><code class="docutils literal notranslate"><span class="pre">check-yaml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-config.html#doc-formatting-rst-files">Doc formatting (.rst files)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-usage.html">Using Pre-Commit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-usage.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-usage.html#automatic-usage">Automatic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pre-commit-usage.html#manual-usage">Manual Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">gitchangelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/gitchangelog.html">gitchangelog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGES.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id1">3.2.2 (2024-03-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id2">3.2.1 (2025-03-31)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id4">3.2.0 (2024-03-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id7">3.1.2 (2022-10-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id10">3.1.1 (2022-10-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id15">3.1.0 (2022-10-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id18">3.0.10 (2022-09-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id23">3.0.9 (2022-04-13)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id26">3.0.8 (2021-11-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id29">3.0.7 (2021-02-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id33">3.0.6 (2021-02-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id37">3.0.5 (2021-01-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id42">3.0.4-4 (2020-12-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id45">3.0.4-3 (2020-12-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id48">3.0.4-2 (2020-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id49">3.0.4-1 (2020-11-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id50">3.0.4 (2018-03-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id52">3.0.3 (2017-04-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id54">3.0.2 (2017-04-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id56">3.0.1 (2017-03-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id58">3.0.0 (2017-03-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id62">2.5.1 (2015-11-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id64">2.5.0 (2016-10-16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id67">2.4.0 (2015-11-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id69">2.3.0 (2015-09-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id71">2.2.1 (2015-06-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id73">2.2.0 (2015-01-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id77">2.1.2 (2014-04-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id79">2.1.1 (2014-04-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id81">2.1.0 (2014-03-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id85">2.0.0 (2013-08-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id89">1.1.0 (2012-05-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id93">1.0.2 (2012-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id97">1.0.1 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id99">1.0.0 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id103">0.1.4 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id106">0.1.3 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id109">0.1.2 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id113">0.1.1 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id116">0.1.0 (2011-06-29)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="readme_include.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Generate your changelog</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The gitchangelog tool</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025 Stephen Arnold.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
