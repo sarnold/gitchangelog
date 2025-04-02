@@ -2,6 +2,24 @@ Changelog
 =========
 
 
+3.2.2 (2024-03-18)
+------------------
+
+Changes
+~~~~~~~
+- Expand doc sources, revert short changes file, switch theme. [Stephen
+  L Arnold]
+
+  * reorganize sections and use readme include file
+  * use PyData Sphinx theme, remove sidebar, get version back
+- Try partial changelog with only sections, add CHANGES.rst to docs.
+  [Stephen L Arnold]
+
+  * add sphinx_git extension and display HEAD commit data as a
+    workaround for missing the version in the sidebar
+- Cleanup extra license file, replace with symlink. [Stephen L Arnold]
+
+
 3.2.1 (2025-03-31)
 ------------------
 
@@ -33,6 +51,12 @@ Changes
   [Stephen L Arnold]
 - Misc config updates, flags arg in publish callable needs discussion.
   [Stephen Arnold]
+
+Fixes
+~~~~~
+- Add missing workflow trigger. [Stephen L Arnold]
+
+  * callable workflow files require the ``workflow_call`` key
 
 
 3.2.0 (2024-03-18)

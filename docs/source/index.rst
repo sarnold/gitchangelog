@@ -1,13 +1,23 @@
-Welcome to the gitchangelog documentation!
-==========================================
+The gitchangelog tool
+=====================
+
+.. git_commit_detail::
+    :branch:
+    :commit:
+    :sha_length: 10
+    :uncommitted:
+    :untracked:
 
 .. toctree::
-   :caption: Contents:
-   :maxdepth: 3
+    :maxdepth: 2
+    :caption: Contents:
 
-   README.rst
-   api/modules
-
+    readme_include
+    dev/generate-changelog
+    dev/pre-commit-config
+    dev/pre-commit-usage
+    api/modules
+    CHANGES
 
 Indices and tables
 ==================
