@@ -50,7 +50,6 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
-    "sphinx_design",
     'sphinx_git',
     'recommonmark',
 ]
@@ -100,77 +99,16 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'sphinx_rtd_theme'
-#html_theme = 'alabaster'
-#html_theme = 'classic'
-html_theme = "pydata_sphinx_theme"
+html_theme = 'classic'  # still has a version
 
-# pydata-theme tweaks
-language = "en"
-extensions += ["sphinx_sitemap"]
-
-html_baseurl = os.environ.get("SPHINX_HTML_BASE_URL", "http://127.0.0.1:8000/")
-sitemap_locales = [None]
-sitemap_url_scheme = "{link}"
-
-html_theme_options = {
-    "navbar_align": "left",
-    "show_nav_level": 3,
-    "content_footer_items": ["last-updated"],
-}
 html_sidebars = {
-    "**": []
+    '**': [
+        'searchfield.html',
+        'globaltoc.html',
+        'relations.html',
+    ]
 }
 
-# html_theme = "sphinx_book_theme"
-# html_title = f"Gitchangelog {version}"
-# html_copy_source = True
-
-# html_theme_options = {
-    # "path_to_docs": "docs",
-    # "repository_url": "https://github.com/sarnold/gitchangelog",
-    # #"use_repository_button": True,
-    # "repository_branch": "master",
-    # "use_edit_page_button": True,
-    # "use_source_button": True,
-    # "use_issues_button": True,
-    # "use_download_button": True,
-    # "use_sidenotes": True,
-    # "show_toc_level": 2,
-    # "home_page_in_toc": True,
-    # "show_navbar_depth": 1,
-# }
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-#
-# html_theme_options = {}
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ['_static']
-
-# Custom sidebar templates, must be a dictionary that maps document names
-# to template names.
-#
-# This is required for the alabaster theme
-# refs: http://alabaster.readthedocs.io/en/latest/installation.html#sidebars
-# html_sidebars = {
-    # '**': [
-        # 'searchfield.html',
-        # 'relations.html',
-        # 'navigation.html',
-        # 'about.html',
-        # 'donate.html',
-    # ]
-# }
-
-# book theme only
-# html_sidebars = {
-    # "**": ["sbt-sidebar-nav.html"]
-# }
 
 # -- Options for HTMLHelp output ------------------------------------------
 

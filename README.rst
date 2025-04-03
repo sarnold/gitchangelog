@@ -1,6 +1,6 @@
-=========================
- Generate your changelog
-=========================
+==============================
+ The canonical changelog tool
+==============================
 
 |ci| |release| |badge| |coverage|
 
