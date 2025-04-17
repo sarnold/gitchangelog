@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contents of the .pre-commit-config.yaml file &#8212; gitchangelog 3.2.3.dev3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="../_static/documentation_options.js?v=1b1cb3a7"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Pre-Commit" href="pre-commit-usage.html" />
+    <link rel="prev" title="Changelog Generation" href="generate-changelog.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pre-commit-usage.html" title="Using Pre-Commit"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="generate-changelog.html" title="Changelog Generation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">gitchangelog 3.2.3.dev3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Contents of the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="contents-of-the-pre-commit-config-yaml-file">
+<h1>Contents of the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file<a class="headerlink" href="#contents-of-the-pre-commit-config-yaml-file" title="Link to this heading">¶</a></h1>
+<p>The file <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> is used to configure the program
+<code class="docutils literal notranslate"><span class="pre">pre-commit</span></code>, which controls the setup and execution of <a class="reference external" href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">Git hooks</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file has a list of git repos, each repo may
+define one or more hooks.</p>
+<p>In this document we will review the various hooks. Some of the hooks will
+modify files, some will not.</p>
+</section>
+<section id="some-hook-descriptions">
+<h1>Some Hook Descriptions<a class="headerlink" href="#some-hook-descriptions" title="Link to this heading">¶</a></h1>
+<p>Basic warning checks include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">check-added-large-files</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check-case-conflict</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check-executables-have-shebangs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check-shebang-scripts-are-executable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check-merge-conflict</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detect-private-key</span></code></p></li>
+</ul>
+<section id="end-of-file-fixer">
+<h2><code class="docutils literal notranslate"><span class="pre">end-of-file-fixer</span></code><a class="headerlink" href="#end-of-file-fixer" title="Link to this heading">¶</a></h2>
+<p>This will modify files by making sure that each file ends in a blank line.</p>
+<p>If a commit fails due to this hook, just commit again.</p>
+</section>
+<section id="trailing-whitespace">
+<h2><code class="docutils literal notranslate"><span class="pre">trailing-whitespace</span></code><a class="headerlink" href="#trailing-whitespace" title="Link to this heading">¶</a></h2>
+<p>This will modify files by ensuring there is no trailing whitespace on any line.</p>
+<p>If a commit fails due to this hook, just commit again.</p>
+</section>
+<section id="mixed-line-ending">
+<h2><code class="docutils literal notranslate"><span class="pre">mixed-line-ending</span></code><a class="headerlink" href="#mixed-line-ending" title="Link to this heading">¶</a></h2>
+<p>This will modify files by ensuring there are no mixed line endings in any file.</p>
+<p>If a commit fails due to this hook, just commit again.</p>
+</section>
+<section id="check-yaml">
+<h2><code class="docutils literal notranslate"><span class="pre">check-yaml</span></code><a class="headerlink" href="#check-yaml" title="Link to this heading">¶</a></h2>
+<p>This will NOT modify files. It will examine YAML files and report any
+issues. The rules for its configuration are defined in
+<code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> in the <code class="docutils literal notranslate"><span class="pre">exclude</span></code> section.</p>
+<p>If a commit fails due to this hook, all reported issues must be manually
+fixed before committing again.</p>
+</section>
+<section id="doc-formatting-rst-files">
+<h2>Doc formatting (.rst files)<a class="headerlink" href="#doc-formatting-rst-files" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>doc8</p></li>
+<li><p>pygrep</p>
+<ul>
+<li><p>rst-backticks</p></li>
+<li><p>rst-directive-colons</p></li>
+<li><p>rst-inline-touching-normal</p></li>
+</ul>
+</li>
+</ul>
+<p>These checks will NOT modifiy files. They will examine all RST files
+(except ChangeLog.rst) and report any issues.</p>
+<p>If a commit fails due to any of these hooks, all reported issues must be
+manually fixed before committing again.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme_include.html">The canonical changelog tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate-changelog.html">Changelog Generation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contents of the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#some-hook-descriptions">Some Hook Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#end-of-file-fixer"><code class="docutils literal notranslate"><span class="pre">end-of-file-fixer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trailing-whitespace"><code class="docutils literal notranslate"><span class="pre">trailing-whitespace</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixed-line-ending"><code class="docutils literal notranslate"><span class="pre">mixed-line-ending</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-yaml"><code class="docutils literal notranslate"><span class="pre">check-yaml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doc-formatting-rst-files">Doc formatting (.rst files)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pre-commit-usage.html">Using Pre-Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">gitchangelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGES.html">Changelog</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="generate-changelog.html"
+                          title="previous chapter">Changelog Generation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="pre-commit-usage.html"
+                          title="next chapter">Using Pre-Commit</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pre-commit-usage.html" title="Using Pre-Commit"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="generate-changelog.html" title="Changelog Generation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">gitchangelog 3.2.3.dev3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Contents of the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025 Stephen Arnold.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

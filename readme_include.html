@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The canonical changelog tool &#8212; gitchangelog 3.2.3.dev3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=1b1cb3a7"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog Generation" href="dev/generate-changelog.html" />
+    <link rel="prev" title="gitchangelog docs" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dev/generate-changelog.html" title="Changelog Generation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="gitchangelog docs"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">gitchangelog 3.2.3.dev3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The canonical changelog tool</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="the-canonical-changelog-tool">
+<h1>The canonical changelog tool<a class="headerlink" href="#the-canonical-changelog-tool" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://github.com/sarnold/gitchangelog/actions/workflows/ci.yml"><img alt="CI Status" src="https://github.com/sarnold/gitchangelog/actions/workflows/ci.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/sarnold/gitchangelog/actions/workflows/release.yml"><img alt="Release Status" src="https://github.com/sarnold/gitchangelog/actions/workflows/release.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/sarnold/gitchangelog/actions/workflows/pylint.yml"><img alt="Pylint Status" src="https://github.com/sarnold/gitchangelog/actions/workflows/pylint.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/sarnold/gitchangelog/actions/workflows/coverage.yml"><img alt="Coverage workflow" src="https://github.com/sarnold/gitchangelog/actions/workflows/coverage.yml/badge.svg" /></a></p>
+<p><a class="reference external" href="https://github.com/pre-commit/pre-commit"><img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white" /></a> <a class="reference external" href="https://api.reuse.software/info/git.fsfe.org/reuse/api"><img alt="REUSE status" src="https://api.reuse.software/badge/git.fsfe.org/reuse/api" /></a> <a class="reference external" href="https://github.com/sarnold/gitchangelog/"><img alt="Test coverage" src="https://raw.githubusercontent.com/sarnold/gitchangelog/badges/master/test-coverage.svg" /></a> <a class="reference external" href="https://github.com/sarnold/gitchangelog/actions/workflows/pylint.yml"><img alt="Pylint score" src="https://raw.githubusercontent.com/sarnold/gitchangelog/badges/master/pylint-score.svg" /></a></p>
+<p><a class="reference external" href="https://github.com/sarnold/gitchangelog/releases"><img alt="GitHub tag (latest SemVer, including pre-release)" src="https://img.shields.io/github/v/tag/sarnold/gitchangelog?color=blue&amp;include_prereleases&amp;label=latest%20release" /></a> <a class="reference external" href="https://github.com/sarnold/gitchangelog/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/pypi/l/gitchangelog?color=blue" /></a> <a class="reference external" href="https://www.python.org/downloads/"><img alt="Python" src="https://img.shields.io/badge/python-3.6+-blue.svg" /></a> <a class="reference external" href="https://github.com/sarnold/gitchangelog"><img alt="Contributors" src="https://img.shields.io/github/contributors/sarnold/gitchangelog" /></a></p>
+<p><strong>Use your commit log as the data for a nicely formatted and configurable changelog file</strong></p>
+<p>This updated fork of gitchangelog is currently tested on Python 3.7+ on
+Linux, Macos, and Windows (Python 2.7 support has been removed).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The updated version of gitchangelog works best with the updated
+pystache version <a class="reference external" href="https://github.com/VCTLabs/pystache">available here</a>  (as well as on pypi now).
+If pip fails to install pystache from Pypi, you can install it
+using the full github URL of the wheel or sdist on the GH release
+page; check the <a class="reference external" href="https://github.com/PennyDreadfulMTG/pystache">new upstream first</a>, otherwise the newest test
+release is here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">VCTLabs</span><span class="o">/</span><span class="n">pystache</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">v0</span><span class="mf">.6.2</span><span class="o">/</span><span class="n">pystache</span><span class="o">-</span><span class="mf">0.6.2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>Please file a github issue here if you encounter any problems.</p>
+</div>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fully driven by a config file that can be tailored with your changelog
+policies. (see for example the <a class="reference external" href="https://github.com/sarnold/gitchangelog/blob/master/src/gitchangelog/gitchangelog.rc.reference">reference configuration file</a>)</p></li>
+<li><p>filter out commits/tags based on regexp matching</p></li>
+<li><p>refactor commit summary, or commit body on the fly with replace regexp</p></li>
+<li><p>classify commit message into sections (ie: New, Fix, Changes…)</p></li>
+<li><p>any output format supported thanks to templating, you can even choose
+your own preferred template engine (mako, mustache, full python …).</p></li>
+<li><p>support your merge or rebase workflows and complicated git histories</p></li>
+<li><p>support full or incremental changelog generation to match your needs.</p></li>
+<li><p>support easy access to <a class="reference external" href="https://git.wiki.kernel.org/index.php/CommitMessageConventions">trailers key values</a> (if you use them)</p></li>
+<li><p>support of multi-authors for one commit through <code class="docutils literal notranslate"><span class="pre">Co-Authored-By</span></code> <a class="reference external" href="https://git.wiki.kernel.org/index.php/CommitMessageConventions">trailers key values</a></p></li>
+<li><p>now available as a <a class="reference external" href="https://github.com/sarnold/gitchangelog-action">github action</a> for use in release workflows</p></li>
+<li><p>default github release action Markdown config and <code class="docutils literal notranslate"><span class="pre">get-rcpath</span></code> script
+to find it (see the <a class="reference external" href="https://github.com/sarnold/gitchangelog/blob/master/src/gitchangelog/gitchangelog.rc.github.release">gitchangelog.rc.github.release file</a>)</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> is compatible with Python 3.6 and higher on
+Linux/BSD/MacOSX and Windows (the CI tests run on everything except BSD).</p>
+<p>Please submit an issue if you encounter incompatibilities.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<section id="full-package">
+<h3>full package<a class="headerlink" href="#full-package" title="Link to this heading">¶</a></h3>
+<p>The updated gitchangelog is <em>not</em> published on PyPI, thus use one of the
+following to install the latest gitchangelog on any platform:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install https://github.com/sarnold/gitchangelog/releases/download/3.1.0/gitchangelog-3.1.0-py3-none-any.whl
+</pre></div>
+</div>
+<p>or use this command to install from sdist:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install https://github.com/sarnold/gitchangelog/releases/download/3.0.10/gitchangelog-3.0.10.tar.gz
+</pre></div>
+</div>
+<p>The full package provides the <code class="docutils literal notranslate"><span class="pre">gitchangelog.py</span></code> executable as well as:</p>
+<ul class="simple">
+<li><p>a <a class="reference external" href="https://github.com/sarnold/gitchangelog/blob/master/src/gitchangelog/gitchangelog.rc.reference">reference configuration file</a> that provides system wide defaults for
+all values, and a <a class="reference external" href="https://github.com/sarnold/gitchangelog/blob/master/src/gitchangelog/gitchangelog.rc.github.release">github.release file</a> for use in CI scripts</p></li>
+<li><p>some example templates in the <code class="docutils literal notranslate"><span class="pre">mustache</span></code> and <code class="docutils literal notranslate"><span class="pre">mako</span></code> templating engine language.
+Ideal to bootstrap your variations.</p></li>
+</ul>
+</section>
+<section id="from-source">
+<h3>from source<a class="headerlink" href="#from-source" title="Link to this heading">¶</a></h3>
+<p>If you’d rather work from the source repository, it supports the common
+idiom to install it on your system in a virtual env:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv env
+$ source env/bin/activate
+$ pip install -e .[test]
+$ pytest -v .
+$ deactivate
+</pre></div>
+</div>
+<p>The alternative to python venv is the <code class="docutils literal notranslate"><span class="pre">tox</span></code> test driver.  If you have it
+installed already, use the following commands to run the test environments
+from the gitchangelog source directory.</p>
+<p>Use a pip dev install; this can be a convenient way to work on the source
+version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tox -e dev
+</pre></div>
+</div>
+<p>To run tests using default system Python:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tox -e py
+</pre></div>
+</div>
+<p>To run pylint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tox -e lint
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sample">
+<h2>Sample<a class="headerlink" href="#sample" title="Link to this heading">¶</a></h2>
+<p>The default output is ReSTructured text, so it should be readable in ASCII.</p>
+<p>Here is a small sample of the <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> changelog at work.</p>
+<p>Current <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> output so you can get an idea of the log history:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>d7f3f2b (tag: 2.4.0) new: add optional positional argument ``REVLIST`` to allow incremental changelog output (fixes #26)
+16987b5 new: dev: use now ``argparse`` for command line parsing.
+8654238 new: doc: added full use case to remove sectionning and reminder in reference file. (fixes #21) !minor
+e9759c2 (tag: 2.3.0) fix: pkg: coverage would complain about not being able to read config file.
+55b0a17 fix: nasty hidden bug that would break python3 (fixes #27)
+dc279a0 fix: pkg: added missing markdown template in ``data_files``. (fixes #35)
+fc5ce46 (tag: 2.2.1) fix: pkg: ``data_files`` where inconsistently placed depending on way of install. (fixes #34)
+adbd14d fix: doc: ``ìnclude_merge`` options was wrongly typed in sample config files (reported by @tuukkamustonen, fixed #29).
+32e77a2 fix: doc: updated doc to reflec that there are no support of windows for now. (fixes #28)
+b2b154b fix: pkg: update package.
+4560798 fix: dev: removed obsolete code. !minor
+ba79b40 chg: doc: rephrasing and minor changes !minor
+c13d758 fix: remove commit&#39;s meta-information footer from changelog output. (fixes #25)
+</pre></div>
+</div>
+<p>And here is the <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2.4.0 (2015-11-10)
+------------------
+
+New
+~~~
+- Add optional positional argument ``REVLIST`` to allow incremental
+  changelog output (fixes #26) [Valentin Lab]
+
+  See use cases documentations for more information.
+- Use now ``argparse`` for command line parsing. [Valentin Lab]
+
+  This is to prepare introduction of more complex command parsing
+  required by incremental changelog generation for instance.
+
+
+2.3.0 (2015-09-25)
+------------------
+
+Fixes
+~~~~~
+- Nasty hidden bug that would break python3 (fixes #27) [Valentin Lab]
+
+  Actually this bug was revealed by python3 random hashes (thanks to
+  @rschoon for the hint) and could be reproduced on python2.7 with ``-R``
+  mode.
+
+  The ``git show`` command actually will behave differently if given a tag
+  reference and print random unexpected information before using the
+  format string. This would prefix a lot of mess to the first field being
+  asked in the format string.
+
+  And this first field is dependent on the internal order of a dict, and
+  this order is not important as such, and so nothing was done on this
+  part.
+
+  On python2.7, somehow, it would always be the same order that revealed
+  to have no consequence (probably one of the rare field not used in
+  current changelogs).
+
+  Python3 or Python2.7 -R would shuffle this order and then trigger the
+  error whenever this prefix would be appended to actually important
+  fields that went into some further processing (as casted to int for
+  the timestamp for instance).
+
+
+2.2.1 (2015-06-09)
+------------------
+
+Fixes
+~~~~~
+- Fix: doc: ``ìnclude_merge`` options was wrongly typed in sample config
+  files (reported by @tuukkamustonen, fixed #29). [Valentin Lab]
+- Updated doc to reflec that there are no support of windows for now.
+  (fixes #28) [Valentin Lab]
+
+  Actually windows will fail on ``subprocess`` call. (see #28)
+- Remove commit&#39;s meta-information footer from changelog output. (fixes
+  #25) [Valentin Lab]
+
+  Some various tools (thinking of Gerrit) might leave some
+  meta-information in the footer of your commit message&#39;s body that you do
+  not want to be repeated in your changelog. So all values in the footer
+  are removed (This concerns ``Change-Id``, ``Acked-by``, ``CC``,
+  ``Signed-off-by``, ``Bug`` ... and any other value).
+</pre></div>
+</div>
+<p>And the rendered full result is directly used to generate the HTML webpage of
+the <a class="reference external" href="http://pypi.python.org/pypi/gitchangelog">changelog of the PyPI page</a>.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/sarnold/gitchangelog/blob/master/src/gitchangelog/gitchangelog.rc.reference">reference configuration file</a> is delivered within the <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code>
+package and is used to provide defaults to settings. If you didn’t
+install the package and used the standalone file, then chances are that
+<code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> can’t access these defaults values. This is not a problem
+as long as you provided all the required values in your config file.</p>
+<p>The recommended location for <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> config file is the root
+of the current git repository with the name <code class="docutils literal notranslate"><span class="pre">.gitchangelog.rc</span></code>.
+However you could put it elsewhere, and here are the locations checked
+(first match will prevail):</p>
+<ul class="simple">
+<li><p>in the path given thanks to the environment variable
+<code class="docutils literal notranslate"><span class="pre">GITCHANGELOG_CONFIG_FILENAME</span></code></p></li>
+<li><p>in the path stored in git config’s entry <code class="docutils literal notranslate"><span class="pre">gitchangelog.rc-path</span></code> (which
+could be stored in system location or per repository)</p></li>
+<li><p>(RECOMMENDED) in the root of the current git repository with the name
+<code class="docutils literal notranslate"><span class="pre">.gitchangelog.rc</span></code></p></li>
+</ul>
+<p>Then, you’ll be able to call <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> in a GIT repository and it’ll
+print changelog on its standard output.</p>
+<section id="configuration-file-format">
+<h3>Configuration file format<a class="headerlink" href="#configuration-file-format" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/sarnold/gitchangelog/blob/master/src/gitchangelog/gitchangelog.rc.reference">reference configuration file</a> is quite heavily commented and is quite
+simple.  You should be able to use it as required.</p>
+<p>The changelog of gitchangelog is generated with itself and with the reference
+configuration file. You’ll see the output in the <a class="reference external" href="http://pypi.python.org/pypi/gitchangelog">changelog of the PyPI page</a>.</p>
+</section>
+<section id="output-engines">
+<h3>Output Engines<a class="headerlink" href="#output-engines" title="Link to this heading">¶</a></h3>
+<p>At the end of the configuration file, you’ll notice a variable called
+<code class="docutils literal notranslate"><span class="pre">output_engine</span></code>. By default, it’s set to <code class="docutils literal notranslate"><span class="pre">rest_py</span></code>, which is the
+legacy python engine to produce the <code class="docutils literal notranslate"><span class="pre">ReSTructured</span> <span class="pre">Text</span></code> output format
+that is shown in above samples. If this engine fits your needs, you
+won’t need to fiddle with this option.</p>
+<p>To render the template, <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> will generate a data structure that
+will then be rendered thanks to the output engine. This should help you get
+the exact output that you need.</p>
+<p>As people might have different needs and knowledge, a templating
+system using <code class="docutils literal notranslate"><span class="pre">mustache</span></code> is available. <code class="docutils literal notranslate"><span class="pre">mustache</span></code> templates are
+provided to render both <code class="docutils literal notranslate"><span class="pre">ReSTructured</span> <span class="pre">Text</span></code> or <code class="docutils literal notranslate"><span class="pre">markdown</span></code> formats. If
+you know <code class="docutils literal notranslate"><span class="pre">mustache</span></code> templating, then you could easily add or modify
+these existing templates.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">mako</span></code> templating engine is also provided. You’ll find also a <code class="docutils literal notranslate"><span class="pre">mako</span></code>
+template producing the same <code class="docutils literal notranslate"><span class="pre">ReSTructured</span> <span class="pre">Text</span></code> output than the legacy one.
+It’s provided for reference and/or further tweak if you would rather use <a class="reference external" href="http://www.makotemplates.org">mako</a>
+templates.</p>
+<section id="mustache">
+<h4>Mustache<a class="headerlink" href="#mustache" title="Link to this heading">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">mustache</span></code>  output engine uses <a class="reference external" href="http://mustache.github.io/mustache.5.html">mustache templates</a>.</p>
+<p>The <a class="reference external" href="http://mustache.github.io">mustache</a> templates are powered via <a class="reference external" href="https://pypi.python.org/pypi/pystache">pystache</a> the python
+implementation of the <a class="reference external" href="http://mustache.github.io">mustache</a> specifications. So <a class="reference external" href="http://mustache.github.io">mustache</a> output engine
+will only be available if you have <a class="reference external" href="https://pypi.python.org/pypi/pystache">pystache</a> module available in your python
+environment.</p>
+<p>There are <a class="reference external" href="http://mustache.github.io/mustache.5.html">mustache templates</a> bundled with the default installation
+of gitchangelog. These can be called by providing a simple label to the
+<code class="docutils literal notranslate"><span class="pre">mustache(..)</span></code> output_engine, for instance (in your <code class="docutils literal notranslate"><span class="pre">.gitchangelog.rc</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_engine</span> <span class="o">=</span> <span class="n">mustache</span><span class="p">(</span><span class="s2">&quot;markdown&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or you could provide your own mustache template by specifying an
+absolute path (or a relative one, starting from the git toplevel of
+your project by default, or if set, the
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">gitchangelog.template-path</span></code>
+location) to your template file, for instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_engine</span> <span class="o">=</span> <span class="n">mustache</span><span class="p">(</span><span class="s2">&quot;.gitchangelog.tpl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And feel free to copy the bundled templates to use them as bases for
+your own variations. In the source code, these are located in
+<code class="docutils literal notranslate"><span class="pre">src/gitchangelog/templates/mustache</span></code> directory, once installed they
+are in <code class="docutils literal notranslate"><span class="pre">templates/mustache</span></code> directory starting from where your
+<code class="docutils literal notranslate"><span class="pre">gitchangelog.py</span></code> was installed.</p>
+</section>
+<section id="mako">
+<h4>Mako<a class="headerlink" href="#mako" title="Link to this heading">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">makotemplate</span></code> output engine templates for <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> are
+powered via <a class="reference external" href="http://www.makotemplates.org">mako</a> python templating system. So <a class="reference external" href="http://www.makotemplates.org">mako</a> output engine
+will only be available if you have <a class="reference external" href="http://www.makotemplates.org">mako</a> module available in your
+python environment.</p>
+<p>There are <a class="reference external" href="http://www.makotemplates.org">mako</a> templates bundled with the default installation of
+gitchangelog. These can be called by providing a simple label to the
+<code class="docutils literal notranslate"><span class="pre">makotemplate(..)</span></code> output_engine, for instance (in your <code class="docutils literal notranslate"><span class="pre">.gitchangelog.rc</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_engine</span> <span class="o">=</span> <span class="n">makotemplate</span><span class="p">(</span><span class="s2">&quot;markdown&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or you could provide your own mako template by specifying an absolute
+path (or a relative one, starting from the git toplevel of your project
+by default, or if set, the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">gitchangelog.template-path</span></code>
+location) to your template file, for instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_engine</span> <span class="o">=</span> <span class="n">makotemplate</span><span class="p">(</span><span class="s2">&quot;.gitchangelog.tpl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And feel free to copy the bundled templates to use them as bases for
+your own variations. In the source code, these are located in
+<code class="docutils literal notranslate"><span class="pre">src/gitchangelog/templates/mako</span></code> directory, once installed they
+are in <code class="docutils literal notranslate"><span class="pre">templates/mako</span></code> directory starting from where your
+<code class="docutils literal notranslate"><span class="pre">gitchangelog.py</span></code> was installed.</p>
+</section>
+<section id="changelog-data-tree">
+<h4>Changelog data tree<a class="headerlink" href="#changelog-data-tree" title="Link to this heading">¶</a></h4>
+<p>This is a sample of the current data structure sent to output engines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Changelog&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;versions&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%%</span><span class="s1">version</span><span class="si">%%</span><span class="s1"> (unreleased)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="kc">None</span>
+               <span class="s1">&#39;sections&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Changes&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;commits&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s1">&#39;John doe&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="s1">&#39;Adding some extra values.&#39;</span><span class="p">},</span>
+                                         <span class="p">{</span><span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="s1">&#39;Some more changes&#39;</span><span class="p">}]},</span>
+                            <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Other&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;commits&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s1">&#39;Jim Foo&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="s1">&#39;classic modification&#39;</span><span class="p">},</span>
+                                         <span class="p">{</span><span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane Done&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="s1">&#39;Adding some stuff to do.&#39;</span><span class="p">}]}]},</span>
+              <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;v0.2.5 (2013-08-06)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-08-06&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;v0.2.5&#39;</span>
+               <span class="s1">&#39;sections&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;commits&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="s1">&#39;Updating Changelog installation.&#39;</span><span class="p">}],</span>
+                             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Changes&#39;</span><span class="p">}]}]}</span>
+</pre></div>
+</div>
+</section>
+<section id="merged-branches-history-support">
+<h4>Merged branches history support<a class="headerlink" href="#merged-branches-history-support" title="Link to this heading">¶</a></h4>
+<p>Commit attribution to a specific version could be tricky. Suppose you have
+this typical merge tree (spot the tags!):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">new</span><span class="p">:</span> <span class="n">something</span>  <span class="p">(</span><span class="n">HEAD</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">develop</span><span class="p">)</span>
+<span class="o">*</span>   <span class="n">Merge</span> <span class="n">tag</span> <span class="s1">&#39;0.1.1&#39;</span> <span class="n">into</span> <span class="n">develop</span>
+<span class="o">|</span>\
+<span class="o">|</span> <span class="o">*</span> <span class="n">fix</span><span class="p">:</span> <span class="n">out</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">band</span> <span class="n">hotfix</span>  <span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="mf">0.1.1</span><span class="p">)</span>
+<span class="o">*</span> <span class="o">|</span> <span class="n">chg</span><span class="p">:</span> <span class="n">continued</span> <span class="n">development</span>
+<span class="o">|/</span>
+<span class="o">*</span> <span class="n">fix</span><span class="p">:</span> <span class="n">something</span>  <span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">first</span> <span class="n">commit</span>  <span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="mf">0.0.1</span><span class="p">,</span> <span class="n">master</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here’s a minimal draft of gitchangelog to show how commit are
+attributed to versions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.2</span>
+  <span class="o">*</span> <span class="n">new</span><span class="p">:</span> <span class="n">something</span><span class="o">.</span>
+  <span class="o">*</span> <span class="n">Merge</span> <span class="n">tag</span> <span class="s1">&#39;0.1.1&#39;</span> <span class="n">into</span> <span class="n">develop</span><span class="o">.</span>
+  <span class="o">*</span> <span class="n">chg</span><span class="p">:</span> <span class="n">continued</span> <span class="n">development</span><span class="o">.</span>
+
+<span class="mf">0.1.1</span>
+  <span class="o">*</span> <span class="n">fix</span><span class="p">:</span> <span class="n">out</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">band</span> <span class="n">hotfix</span><span class="o">.</span>
+
+<span class="mf">0.1</span>
+  <span class="o">*</span> <span class="n">fix</span><span class="p">:</span> <span class="n">something</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can automatically remove all merge commits from gitchangelog
+output by using <code class="docutils literal notranslate"><span class="pre">include_merge</span> <span class="pre">=</span> <span class="pre">False</span></code> in the <code class="docutils literal notranslate"><span class="pre">.gitchangelog.rc</span></code>
+file.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="use-cases">
+<h2>Use cases<a class="headerlink" href="#use-cases" title="Link to this heading">¶</a></h2>
+<section id="no-sectioning">
+<h3>No sectioning<a class="headerlink" href="#no-sectioning" title="Link to this heading">¶</a></h3>
+<p>If you want to remove sectioning but keep anything else, you should
+probably use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">section_regexps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">subject_process</span> <span class="o">=</span> <span class="p">(</span><span class="n">strip</span> <span class="o">|</span> <span class="n">ucfirst</span> <span class="o">|</span> <span class="n">final_dot</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will disable sectioning and won’t remove the prefixes
+used for sectioning from the commit’s summary.</p>
+</section>
+<section id="incremental-changelog">
+<h3>Incremental changelog<a class="headerlink" href="#incremental-changelog" title="Link to this heading">¶</a></h3>
+<p>Also known as partial changelog generation, this feature allows to
+generate only a subpart of your changelog, and combined with
+configurable publishing actions, you can insert the result inside
+an existing changelog. Usually this makes sense:</p>
+<ul class="simple">
+<li><p>When wanting to switch to <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code>, or change your
+conventions:</p>
+<ul>
+<li><p>part of your history is not following conventions.</p></li>
+<li><p>you have a previous CHANGELOG you want to blend in.</p></li>
+</ul>
+</li>
+<li><p>You’d rather commit changes to your changelog file for each release:</p>
+<ul>
+<li><p>For performance reason, you can then generate changelog only for
+the new commit(s) and save the result.</p></li>
+<li><p>Because you want to be able to edit it to make some minor
+edition if needed.</p></li>
+</ul>
+</li>
+</ul>
+<p>Generating partial changelog is as simple as <code class="docutils literal notranslate"><span class="pre">gitchangelog</span> <span class="pre">REVLIST</span></code>.
+Examples follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## will output only tags between 0.0.2 (excluded) and 0.0.3 (included)</span>
+<span class="n">gitchangelog</span> <span class="mf">0.0.2</span><span class="o">.</span><span class="mf">.0.0.3</span>
+
+<span class="c1">## will output only tags since 0.0.3 (excluded)</span>
+<span class="n">gitchangelog</span> <span class="o">^</span><span class="mf">0.0.3</span> <span class="n">HEAD</span>
+
+<span class="c1">## will output all tags up to 0.0.3 (included)</span>
+<span class="n">gitchangelog</span> <span class="mf">0.0.3</span>
+</pre></div>
+</div>
+<p>Additionally, <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> can figure out automatically which
+revision is the last for you (with some little help). This is done by
+specifying the <code class="docutils literal notranslate"><span class="pre">revs</span></code> config option. This config file option will be
+used as if specified on the command line.</p>
+<p>Here is an example that fits the current changelog format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">revs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Caret</span><span class="p">(</span>
+        <span class="n">FileFirstRegexMatch</span><span class="p">(</span>
+            <span class="s2">&quot;CHANGELOG.rst&quot;</span><span class="p">,</span>
+            <span class="sa">r</span><span class="s2">&quot;(?P&lt;rev&gt;[0-9]+\.[0-9]+(\.[0-9]+))\s+\([0-9]+-[0-9]</span><span class="si">{2}</span><span class="s2">-[0-9]</span><span class="si">{2}</span><span class="s2">\)\n--+\n&quot;</span><span class="p">)),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This will look into the file <code class="docutils literal notranslate"><span class="pre">CHANGELOG.rst</span></code> for the first match of
+the given regex and return the match of the <code class="docutils literal notranslate"><span class="pre">rev</span></code> regex sub-pattern
+it as a string. The <code class="docutils literal notranslate"><span class="pre">Caret</span></code> function will simply prefix the given
+string with a <code class="docutils literal notranslate"><span class="pre">^</span></code>. As a consequence, this code will prevent
+recreating any previously generated changelog section (more information
+about the <a class="reference external" href="https://git-scm.com/docs/git-rev-list#_description">REVLIST syntax</a> from <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rev-list</span></code> arguments.)</p>
+<p>Note that the data structure provided to the template will set the
+<code class="docutils literal notranslate"><span class="pre">title</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code> if you provided no REVLIST through command-line
+or the config file (or if the revlist was equivalently set to
+<code class="docutils literal notranslate"><span class="pre">[&quot;HEAD&quot;,</span> <span class="pre">]</span></code>).  This a good way to make your template detect it is
+in “incremental mode”.</p>
+<p>By default, this will only output to standard output the new sections
+of your changelog, you might want to insert it directly in your existing
+changelog. This is where <code class="docutils literal notranslate"><span class="pre">publish</span></code> parameters will help you. By default
+it is set to <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, and you might want to set it to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">publish</span> <span class="o">=</span> <span class="n">FileInsertAtFirstRegexMatch</span><span class="p">(</span>
+    <span class="s2">&quot;CHANGELOG.rst&quot;</span><span class="p">,</span>
+    <span class="sa">r</span><span class="s1">&#39;/(?P&lt;rev&gt;[0-9]+\.[0-9]+(\.[0-9]+)?)\s+\([0-9]+-[0-9]</span><span class="si">{2}</span><span class="s1">-[0-9]</span><span class="si">{2}</span><span class="s1">\)\n--+\n/&#39;</span><span class="p">,</span>
+    <span class="n">idx</span><span class="o">=</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The full recipe could be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;CHANGELOG.rst&quot;</span>
+<span class="n">INSERT_POINT</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b(?P&lt;rev&gt;[0-9]+\.[0-9]+)\s+\([0-9]+-[0-9]</span><span class="si">{2}</span><span class="s2">-[0-9]</span><span class="si">{2}</span><span class="s2">\)\n--+\n&quot;</span>
+<span class="n">revs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Caret</span><span class="p">(</span><span class="n">FileFirstRegexMatch</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">INSERT_POINT</span><span class="p">)),</span>
+        <span class="s2">&quot;HEAD&quot;</span>
+<span class="p">]</span>
+
+<span class="n">action</span> <span class="o">=</span> <span class="n">FileInsertAtFirstRegexMatch</span><span class="p">(</span>
+    <span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">INSERT_POINT</span><span class="p">,</span>
+    <span class="n">idx</span><span class="o">=</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, you can use this other recipe, using <code class="docutils literal notranslate"><span class="pre">FileRegexSubst</span></code>, that has
+the added advantage of being able to update the unreleased part if you had it already
+generated and need a re-fresh because you added new commits or amended some commits:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;CHANGELOG.rst&quot;</span>
+<span class="n">INSERT_POINT_REGEX</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;(?isxu)</span>
+<span class="s1">^</span>
+<span class="s1">(</span>
+<span class="s1">  \s*Changelog\s*(\n|\r\n|\r)        ## ``Changelog`` line</span>
+<span class="s1">  ==+\s*(\n|\r\n|\r)</span><span class="si">{2}</span><span class="s1">              ## ``=========`` rest underline</span>
+<span class="s1">)</span>
+
+<span class="s1">(                     ## Match all between changelog and release rev</span>
+<span class="s1">    (</span>
+<span class="s1">      (?!</span>
+<span class="s1">         (?&lt;=(\n|\r))                ## look back for newline</span>
+<span class="s1">         </span><span class="si">%(rev)s</span><span class="s1">                     ## revision</span>
+<span class="s1">         \s+</span>
+<span class="s1">         \([0-9]+-[0-9]</span><span class="si">{2}</span><span class="s1">-[0-9]</span><span class="si">{2}</span><span class="s1">\)(\n|\r\n|\r)   ## date</span>
+<span class="s1">           --+(\n|\r\n|\r)                          ## ``---`` underline</span>
+<span class="s1">      )</span>
+<span class="s1">      .</span>
+<span class="s1">    )*</span>
+<span class="s1">)</span>
+
+<span class="s1">(?P&lt;rev&gt;</span><span class="si">%(rev)s</span><span class="s1">)</span>
+<span class="s1">&#39;&#39;&#39;</span> <span class="o">%</span> <span class="p">{</span><span class="s1">&#39;rev&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;[0-9]+\.[0-9]+(\.[0-9]+)?&quot;</span><span class="p">}</span>
+
+<span class="n">revs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Caret</span><span class="p">(</span><span class="n">FileFirstRegexMatch</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">INSERT_POINT_REGEX</span><span class="p">)),</span>
+    <span class="s2">&quot;HEAD&quot;</span>
+<span class="p">]</span>
+
+<span class="n">publish</span> <span class="o">=</span> <span class="n">FileRegexSubst</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">INSERT_POINT_REGEX</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\1\o\g&lt;rev&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a second example, here is the same recipe for mustache markdown format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;CHANGELOG.rst&quot;</span>
+<span class="n">INSERT_POINT_REGEX</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;(?isxu)</span>
+<span class="s1">^</span>
+<span class="s1">(</span>
+<span class="s1">  \s*\#\s+Changelog\s*(\n|\r\n|\r)        ## ``Changelog`` line</span>
+<span class="s1">)</span>
+
+<span class="s1">(                     ## Match all between changelog and release rev</span>
+<span class="s1">    (</span>
+<span class="s1">      (?!</span>
+<span class="s1">         (?&lt;=(\n|\r))                ## look back for newline</span>
+<span class="s1">         \#\#\s+</span><span class="si">%(rev)s</span><span class="s1">                     ## revision</span>
+<span class="s1">         \s+</span>
+<span class="s1">         \([0-9]+-[0-9]</span><span class="si">{2}</span><span class="s1">-[0-9]</span><span class="si">{2}</span><span class="s1">\)(\n|\r\n|\r)   ## date</span>
+<span class="s1">      )</span>
+<span class="s1">      .</span>
+<span class="s1">    )*</span>
+<span class="s1">)</span>
+
+<span class="s1">(?P&lt;tail&gt;\#\#\s+(?P&lt;rev&gt;</span><span class="si">%(rev)s</span><span class="s1">))</span>
+<span class="s1">&#39;&#39;&#39;</span> <span class="o">%</span> <span class="p">{</span><span class="s1">&#39;rev&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;[0-9]+\.[0-9]+(\.[0-9]+)?&quot;</span><span class="p">}</span>
+
+<span class="n">revs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Caret</span><span class="p">(</span><span class="n">FileFirstRegexMatch</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">INSERT_POINT_REGEX</span><span class="p">)),</span>
+    <span class="s2">&quot;HEAD&quot;</span>
+<span class="p">]</span>
+
+<span class="n">publish</span> <span class="o">=</span> <span class="n">FileRegexSubst</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">INSERT_POINT_REGEX</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\1\o\n\g&lt;tail&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="making-changes-contributing">
+<h2>Making Changes &amp; Contributing<a class="headerlink" href="#making-changes-contributing" title="Link to this heading">¶</a></h2>
+<p>We use the <a class="reference external" href="https://github.com/sarnold/gitchangelog-action">gitchangelog-action</a> to generate our GitHub Release page, as
+well as the gitchangelog commit message prefix “tag” modifiers to help
+it categorize/filter commits for a tidier changelog. Please use the
+appropriate ACTION modifiers in any Pull Requests.</p>
+<p>This repo is also <a class="reference external" href="https://pre-commit.com/index.html">pre-commit</a> enabled for various linting and format
+checks.  The checks run automatically on commit and will fail the
+commit (if not clean) with some checks performing simple file corrections.</p>
+<p>If other checks fail on commit, the failure display should explain the error
+types and line numbers. Note you must fix any fatal errors for the
+commit to succeed; some errors should be fixed automatically (use
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> to review any changes).</p>
+<p>See the following pages for more information on using gitchangelog and pre-commit.</p>
+<p>You will need to install pre-commit before contributing any changes;
+installing it using your system’s package manager is recommended,
+otherwise install with pip into your usual virtual environment using
+something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo emerge pre-commit  --or--
+$ pip install pre-commit
+</pre></div>
+</div>
+<p>then install it into the repo you just cloned:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/sarnold/gitchangelog
+$ cd gitchangelog/
+$ pre-commit install
+</pre></div>
+</div>
+<p>It’s usually a good idea to update the hooks to the latest version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">autoupdate</span>
+</pre></div>
+</div>
+</section>
+<section id="sbom-and-license-info">
+<h2>SBOM and license info<a class="headerlink" href="#sbom-and-license-info" title="Link to this heading">¶</a></h2>
+<p>Licensed under the <a class="reference external" href="LICENSES/">BSD License</a> as documented in <code class="docutils literal notranslate"><span class="pre">REUSE.toml</span></code>.</p>
+<p>This project is now compliant with the REUSE Specification Version 3.3,
+and the corresponding license information for all files can be found in
+the <code class="docutils literal notranslate"><span class="pre">REUSE.toml</span></code> configuration file with license text(s) in the
+<code class="docutils literal notranslate"><span class="pre">LICENSES/</span></code> folder.</p>
+<p>Related metadata can be (re)generated with the following tools and
+command examples.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/fsfe/reuse-tool">reuse-tool</a> - <a class="reference external" href="https://reuse.software/spec-3.3/">REUSE</a> compliance linting and sdist (source files) SBOM generation</p></li>
+<li><p><a class="reference external" href="https://github.com/anthonyharrison/sbom4python">sbom4python</a> - generate SBOM with full dependency chain</p></li>
+</ul>
+<section id="commands">
+<h3>Commands<a class="headerlink" href="#commands" title="Link to this heading">¶</a></h3>
+<p>Use tox to create the environment and run the lint command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tox -e reuse                      # to run reuse lint   --or--
+$ tox -e reuse -- spdx &gt; sbom.txt   # generate sdist files sbom
+</pre></div>
+</div>
+<p>Note you can pass any of the other reuse commands after the <code class="docutils literal notranslate"><span class="pre">--</span></code> above.</p>
+<p>Use the above environment to generate the full SBOM in text format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source .tox/reuse/bin/activate
+$ sbom4python --system --use-pip -o &lt;file_name&gt;.txt
+</pre></div>
+</div>
+<p>Be patient; the last command above may take several minutes. See the
+doc links above for more detailed information on the tools and
+specifications.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The canonical changelog tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample">Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-cases">Use cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-changes-contributing">Making Changes &amp; Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sbom-and-license-info">SBOM and license info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev/generate-changelog.html">Changelog Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-config.html">Contents of the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-config.html#some-hook-descriptions">Some Hook Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-usage.html">Using Pre-Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">gitchangelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGES.html">Changelog</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">gitchangelog docs</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="dev/generate-changelog.html"
+                          title="next chapter">Changelog Generation</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dev/generate-changelog.html" title="Changelog Generation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="gitchangelog docs"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">gitchangelog 3.2.3.dev3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The canonical changelog tool</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025 Stephen Arnold.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

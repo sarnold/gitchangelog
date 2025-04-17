@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Changelog &#8212; gitchangelog 3.2.3.dev3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=1b1cb3a7"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="gitchangelog.gitchangelog module" href="api/gitchangelog.gitchangelog.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api/gitchangelog.gitchangelog.html" title="gitchangelog.gitchangelog module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">gitchangelog 3.2.3.dev3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Changelog</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">¶</a></h1>
+<section id="id1">
+<h2>3.2.2 (2024-03-18)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="changes">
+<h3>Changes<a class="headerlink" href="#changes" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Expand doc sources, revert short changes file, switch theme. [Stephen
+L Arnold]</p>
+<ul>
+<li><p>reorganize sections and use readme include file</p></li>
+<li><p>use PyData Sphinx theme, remove sidebar, get version back</p></li>
+</ul>
+</li>
+<li><p>Try partial changelog with only sections, add CHANGES.rst to docs.
+[Stephen L Arnold]</p>
+<ul>
+<li><p>add sphinx_git extension and display HEAD commit data as a
+workaround for missing the version in the sidebar</p></li>
+</ul>
+</li>
+<li><p>Cleanup extra license file, replace with symlink. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>3.2.1 (2025-03-31)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="new">
+<h3>New<a class="headerlink" href="#new" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add pre-commit config, cleanup bits, update CHANGES.rst. [Stephen L
+Arnold]</p>
+<ul>
+<li><p>move old change data to HISTORY.rst, start CHANGES.rst after v3.0.4</p></li>
+</ul>
+</li>
+<li><p>Add reuse tool, use reuse cfg and LICENSES dir for compliance.
+[Stephen Arnold]</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Changes<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update .gitchangelog.rc tag filter, regenerate changelog. [Stephen L
+Arnold]</p>
+<ul>
+<li><p>update the readme with a later log example</p></li>
+</ul>
+</li>
+<li><p>Test coverage bits and windows in CI. [Stephen L Arnold]</p>
+<ul>
+<li><p>remove bash-ism from check command to be more platform-agnostic</p></li>
+</ul>
+</li>
+<li><p>Update changelog bits with new regex and full changes cmd. [Stephen L
+Arnold]</p>
+<ul>
+<li><p>(re)generate CHANGES.rst file</p></li>
+</ul>
+</li>
+<li><p>Add tox shared env extension, update readme and project files.
+[Stephen L Arnold]</p></li>
+<li><p>Update workflow action and python version, add base automation.
+[Stephen L Arnold]</p></li>
+<li><p>Misc config updates, flags arg in publish callable needs discussion.
+[Stephen Arnold]</p></li>
+</ul>
+</section>
+<section id="fixes">
+<h3>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add missing workflow trigger. [Stephen L Arnold]</p>
+<ul>
+<li><p>callable workflow files require the <code class="docutils literal notranslate"><span class="pre">workflow_call</span></code> key</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id4">
+<h2>3.2.0 (2024-03-18)<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<section id="id5">
+<h3>Changes<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Remove merges from .gitchangelog.rc and regenerate file. [Steve
+Arnold]</p>
+<ul>
+<li><p>add ‘changes’ command to to tox file</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id6">
+<h3>Fixes<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Use tz-aware timestamps for author/tagger dates iin Python 3.12.
+[Steve Arnold]</p>
+<ul>
+<li><p>silence deprecation warnings and stop breaking tests</p></li>
+</ul>
+</li>
+<li><p>Cleanup package configs, readme, and changes for package QA. [Steve
+Arnold]</p>
+<ul>
+<li><p>add ignore regex to .gitchangelog.rc to remove ci/dependabot commits</p></li>
+<li><p>update changes and tox files again</p></li>
+</ul>
+</li>
+<li><p>Complete version cleanup, migrate to setuptools_scm, buff some lint.
+[Steve Arnold]</p>
+<ul>
+<li><p>cleanup old version references, bump pystache to latest Pypi release</p></li>
+<li><p>revert matrix artifacts in ci, upload a single build instance</p></li>
+<li><p>cleanup/migrate flake8 configs and tox file</p></li>
+</ul>
+</li>
+<li><p>Try a matrix name for v4 workflow artifacts. [Steve Arnold]</p></li>
+<li><p>Replace deprecated pkg_resources and update workflows. [Steve Arnold]</p></li>
+</ul>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update CHANGES.rst for release. [Steve Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2>3.1.2 (2022-10-30)<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<section id="id8">
+<h3>Changes<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update changes file for new release. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Fixes<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Restore missing percentage in coverage display, update changes.
+[Stephen L Arnold]</p></li>
+<li><p>Add missing import for exception handler, use correct version.
+[Stephen L Arnold]</p></li>
+<li><p>Upgrade workflow actions, add org membercheck to coverage. [Stephen L
+Arnold]</p>
+<ul>
+<li><p>removes a bunch of GH Check annotations/warnings</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id10">
+<h2>3.1.1 (2022-10-03)<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
+<section id="id11">
+<h3>New<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Enable pep8speaks, add config fi;e. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Changes<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add readme note about no more Python 2.7 support. [Stephen L Arnold]</p></li>
+<li><p>Extend Popen timeout and wrap in try/except block. [Stephen L Arnold]</p>
+<ul>
+<li><p>15 sec is not long enough on some GH ci runners</p></li>
+<li><p>follow subprocess docs and kill/drain process output</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id13">
+<h3>Fixes<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update packaging and pytest env, restore missing bits. [Stephen L
+Arnold]</p>
+<ul>
+<li><p>add Popen kill to git invocation, remove ResourceWarnings hidden
+by default pytest cfg</p></li>
+<li><p>make sure pytest does not filter any warnings</p></li>
+<li><p>make sure version attribute matches new version imports</p></li>
+<li><p>retore missing CHANGES file and workflow env var</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id14">
+<h3>Other<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update changes file for release. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id15">
+<h2>3.1.0 (2022-10-01)<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
+<section id="id16">
+<h3>New<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add gh workflow to run sphinx doc build and deploy to gh-pages.
+[Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>Changes<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update readme and both release and local rc files. [Stephen L Arnold]</p>
+<ul>
+<li><p>update readme with new upstream pystache pointer, cleanup</p></li>
+<li><p>release default needs v tag prefix in tag_regexps</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id18">
+<h2>3.0.10 (2022-09-26)<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h2>
+<section id="id19">
+<h3>New<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add basic sphinx docs sources, update packaging, cleanup docstrings.
+[Stephen L Arnold]</p>
+<ul>
+<li><p>make a docs build using readme and sphinx-apidoc module</p></li>
+<li><p>remove section headers from docstrings (not allowed)</p></li>
+<li><p>update packaging deps and manifest/tox files</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id20">
+<h3>Changes<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add post-release docs build to release workflow. [Stephen L Arnold]</p></li>
+<li><p>Update readme, reformat license file, cleanup more lint. [Stephen L
+Arnold]</p></li>
+<li><p>Add coverage and pylint ci workflows. [Stephen L Arnold]</p></li>
+<li><p>Modernize/refactor source, packaging, tests. [Stephen L Arnold]</p>
+<ul>
+<li><p>remove more py2 cruft/old cfg files, refactor problematic tests</p></li>
+<li><p>update package deps to point to latest pystache sdist</p></li>
+<li><p>workaround for upstream pystache version and pypi install issues</p></li>
+<li><p>update ci workflows and status</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id21">
+<h3>Fixes<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add more tool configs, cleanup some lint, update tox file. [Stephen L
+Arnold]</p></li>
+<li><p>Use namespace paths for data files, remove symlink. [Stephen L Arnold]</p>
+<ul>
+<li><p>src layout needs full namespace paths in setup.cfg</p></li>
+<li><p>single file install is no longer an option, so remove the symlink
+and readme reference to it</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id22">
+<h3>Other<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update readme/install notes for latest pystache install issues.
+[Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id23">
+<h2>3.0.9 (2022-04-13)<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h2>
+<section id="id24">
+<h3>Fixes<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Cleanup some readme typos. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id25">
+<h3>Other<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add python 3.10 to workflow matrix/tox (no more nose, should be Green)
+[Stephen L Arnold]</p></li>
+<li><p>Replace nose with pytest, update tool configs. [Stephen L Arnold]</p></li>
+<li><p>Bump version for patch release, need clean deps for gitchangelog-
+action. [Stephen L Arnold]</p></li>
+<li><p>Switch pystache dep back to pypi, cleanup tox file. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id26">
+<h2>3.0.8 (2021-11-15)<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h2>
+<section id="id27">
+<h3>Fixes<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Make pystache dependency concrete until pypi is updated. [Stephen L
+Arnold]</p>
+<ul>
+<li><p>update tox commands, add requirements file</p></li>
+</ul>
+</li>
+<li><p>Correct typo in utility doc-string. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id28">
+<h3>Other<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bump version for patch release, cleanup help msg. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id29">
+<h2>3.0.7 (2021-02-28)<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h2>
+<section id="id30">
+<h3>Changes<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add/adjust some options in codecov.yml. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id31">
+<h3>Fixes<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Setup.py deps and install instructions (#2) [Steve Arnold]</p>
+<ul>
+<li><p>allow last pypi version of pystache in install_requires</p></li>
+<li><p>doc: update readme install instructions</p></li>
+<li><p>dev: update pragmas, add missing one for win32/py2</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id32">
+<h3>Other<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bump version for release. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id33">
+<h2>3.0.6 (2021-02-27)<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h2>
+<section id="id34">
+<h3>Changes<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Switch repo paths in readme. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id35">
+<h3>Fixes<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update default release cfg, cleanup typos, go back to master. [Stephen
+L Arnold]</p></li>
+</ul>
+</section>
+<section id="id36">
+<h3>Other<a class="headerlink" href="#id36" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bump version for release, update readme. [Stephen L Arnold]</p></li>
+<li><p>Get-rcpath and CI/config updates (#1) [Steve Arnold]</p>
+<ul>
+<li><p>test: add more steps for tests/check</p></li>
+<li><p>test: update tox gh-matrix and flesh out coverage bits</p></li>
+<li><p>refactor get-rcpath to use pkg_resources instead of gh env path</p></li>
+<li><p>update release workflow to use new gcl action</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id37">
+<h2>3.0.5 (2021-01-19)<a class="headerlink" href="#id37" title="Link to this heading">¶</a></h2>
+<section id="id38">
+<h3>New<a class="headerlink" href="#id38" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Ci: shiny version bump for packaging and add some new wheels. [Stephen
+L Arnold]</p></li>
+</ul>
+</section>
+<section id="id39">
+<h3>Changes<a class="headerlink" href="#id39" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Note about gitchangelog.rc.github.release config, cleanup. [Stephen L
+Arnold]</p></li>
+<li><p>Ci: add wheel check and disable appveyor ci. [Stephen L Arnold]</p></li>
+<li><p>Ci: export shell var PYTHONIOENCODING to utf-8. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id40">
+<h3>Fixes<a class="headerlink" href="#id40" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Ci: use pep517 builder to get the right wheel install deps. [Stephen L
+Arnold]</p></li>
+<li><p>Ci: add the nose traverse-namespace setting for windows py38+ [Stephen
+L Arnold]</p></li>
+</ul>
+</section>
+<section id="id41">
+<h3>Other<a class="headerlink" href="#id41" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bump version in readme example and drop appveyor badge. [Stephen L
+Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id42">
+<h2>3.0.4-4 (2020-12-09)<a class="headerlink" href="#id42" title="Link to this heading">¶</a></h2>
+<section id="id43">
+<h3>New<a class="headerlink" href="#id43" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Re-package get-rcpath helper script, install to bin directory.
+[Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id44">
+<h3>Other<a class="headerlink" href="#id44" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bump version 3.0.4-3 -&gt; 3.0.4-4 for release. [Stephen L Arnold]</p></li>
+<li><p>README.rst: add github action feature bullet. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id45">
+<h2>3.0.4-3 (2020-12-08)<a class="headerlink" href="#id45" title="Link to this heading">¶</a></h2>
+<section id="id46">
+<h3>New<a class="headerlink" href="#id46" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add default compact reference config for github release action.
+[Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id47">
+<h3>Other<a class="headerlink" href="#id47" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bump version and fix README tab whitespace error. [Stephen L Arnold]</p></li>
+<li><p>Bug: revert windows-latest due to env code page errors. [Stephen L
+Arnold]</p></li>
+<li><p>Try msys install latest git to workaround the encoding test issue.
+[Stephen L Arnold]</p></li>
+<li><p>Restore pager cfg, leave one more artifact, then revert windows-
+latest. [Stephen L Arnold]</p></li>
+<li><p>One more try with msys2 mingw64 env and git pkg (may not like tox)
+[Stephen L Arnold]</p></li>
+<li><p>Restore the git config checkout cmds for crlf/i18n. [Stephen L Arnold]</p></li>
+<li><p>Fix checkout step (needs commit data) and shorten install list.
+[Stephen L Arnold]</p></li>
+<li><p>Try msys install latest git to workaround the encoding test issue.
+[Stephen L Arnold]</p></li>
+</ul>
+</section>
+</section>
+<section id="id48">
+<h2>3.0.4-2 (2020-11-20)<a class="headerlink" href="#id48" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Bump version 3.0.4-1 -&gt; 3.0.4-2 and update readme. [Stephen L Arnold]</p></li>
+<li><p>Go back to github windows disabled. [Stephen L Arnold]</p></li>
+<li><p>Try the input git config setting just for kicks. [Stephen L Arnold]</p></li>
+<li><p>Disable windows until the github windows image has more git. [Stephen
+L Arnold]</p></li>
+<li><p>Recover “working” config (except the windows test runner/encoding
+errors) [Stephen L Arnold]</p></li>
+<li><p>Keep git history for install check, update README.rst. [Stephen L
+Arnold]</p></li>
+<li><p>Allow py27 for a while longer, update tox and setup.cfg. [Stephen L
+Arnold]</p></li>
+<li><p>Modify CI commands to follow the appveyor pattern. [Stephen L Arnold]</p></li>
+<li><p>Migrate CI to github actions. [Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id49">
+<h2>3.0.4-1 (2020-11-08)<a class="headerlink" href="#id49" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Bump version 3.0.4 -&gt; 3.0.4-1 and fix badge url. [Stephen L Arnold]</p></li>
+<li><p>Restore pystache support for testing, use github url for source.
+[Stephen L Arnold]</p></li>
+<li><p>Appveyor.yml: cleanup pip install a bit. [Stephen L Arnold]</p></li>
+<li><p>Use .travis scripts (borrowed from simplejson) to sort out osx
+pythons. [Stephen L Arnold]</p></li>
+<li><p>Update INSTALL snippet and add osx to travis build matrix. [Stephen L
+Arnold]</p></li>
+<li><p>README.rst: sync content, add venv/tox sections, remove mustache refs.
+[Stephen L Arnold]</p></li>
+<li><p>Dev: add/document test and ci deps as extras_require, cleanup old
+files. [Stephen L Arnold]</p></li>
+<li><p>Dev: add support for ‘pN’ version suffix for post/patch releases.
+[Stephen L Arnold]</p></li>
+<li><p>README.rst: revert appveyor tokenized url for github project path.
+[Stephen L Arnold]</p></li>
+<li><p>README.rst: switch to tokenized appveyor badge url. [Stephen L Arnold]</p></li>
+<li><p>README.rst: restore appveyor badge, replace with org in github urls.
+[Stephen L Arnold]</p></li>
+<li><p>Appveyor.yml: install test deps with pip since we don’t have tox.
+[Stephen L Arnold]</p></li>
+<li><p>Appveyor.yml: update install cmds and python version, re-enable.
+[Stephen L Arnold]</p></li>
+<li><p>.gitchangelog.rc: remove cruft to fix –debug arg. [Stephen L Arnold]</p>
+<ul class="simple">
+<li><p>use git describe directly instead of (alredy removed) shell wrapper</p></li>
+</ul>
+</li>
+<li><p>Add a .codeclimate.yml config file. [Stephen L Arnold]</p></li>
+<li><p>Clean out pytest, restore upstream nose config and use nosetest.
+[Stephen L Arnold]</p>
+<ul class="simple">
+<li><p>also restore internal coverage command runner in test/common.py</p></li>
+</ul>
+</li>
+<li><p>Force travis to install system pkg for (optional) runtime dep.
+[Stephen L Arnold]</p></li>
+<li><p>Setup.cfg: add missing mako dep and add linting to CI tests. [Stephen
+L Arnold]</p></li>
+<li><p>Revert “move version var to module level and read it via attr in
+setup.cfg” [Stephen L Arnold]</p>
+<p>This reverts commit fa496a29ac95e98a564c4fe38ca50e52f0de7383.</p>
+</li>
+<li><p>Move version var to module level and read it via attr in setup.cfg.
+[Stephen L Arnold]</p></li>
+<li><p>Force setuptools upgrade in travis env. [Stephen L Arnold]</p></li>
+<li><p>README.rst: point license badge at pypi so it actually works. [Stephen
+L Arnold]</p>
+<ul class="simple">
+<li><p>github fails to indentify it as BSD so github badge type fails</p></li>
+<li><p>also switch travis urls to travis-ci.com &lt;sigh&gt;</p></li>
+</ul>
+</li>
+<li><p>README.rst: swap out upstream badges for local ones. [Stephen L
+Arnold]</p></li>
+<li><p>Disable old CI and add new baseline travis.org cfg. [Stephen L Arnold]</p></li>
+<li><p>Add legacy tox.ini and .gitignore with python stuffs. [Stephen L
+Arnold]</p></li>
+<li><p>Setup.cfg: fleash out minimum settings for proper PEP 517 install.
+[Stephen L Arnold]</p></li>
+<li><p>Remove last vestiges of mustache support and tests (long stale
+upstream) [Stephen L Arnold]</p></li>
+<li><p>Create PEP 517/518 compliant setup.cfg and set last version (3.0.4)
+[Stephen L Arnold]</p></li>
+</ul>
+</section>
+<section id="id50">
+<h2>3.0.4 (2018-03-17)<a class="headerlink" href="#id50" title="Link to this heading">¶</a></h2>
+<section id="id51">
+<h3>Fixes<a class="headerlink" href="#id51" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Conform to PEP479 as required by python 3.7 (fixes #101) [Valentin
+Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id52">
+<h2>3.0.3 (2017-04-23)<a class="headerlink" href="#id52" title="Link to this heading">¶</a></h2>
+<section id="id53">
+<h3>Fixes<a class="headerlink" href="#id53" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>API cli change not documented about implicit <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> removed in
+revision list specifier. (fixes #81) [Valentin Lab]</p>
+<p>In 2.5.1, <code class="docutils literal notranslate"><span class="pre">gitchangelog</span> <span class="pre">show</span> <span class="pre">^3.0.0</span></code> command would implicitly add a
+<code class="docutils literal notranslate"><span class="pre">HEAD</span></code> in the revlist specifiers, effectively being equivalent to
+<code class="docutils literal notranslate"><span class="pre">0.0.3..HEAD</span></code>.</p>
+<p>This behavior is removed in 3.0.0+ to stick to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rev-list</span> <span class="pre">REVLIST</span></code>
+syntax.  As a consequence, <code class="docutils literal notranslate"><span class="pre">gitchangelog</span> <span class="pre">^3.0.0</span></code> won’t select any
+revision and thus will cast an error about no commits matching revlist.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id54">
+<h2>3.0.2 (2017-04-21)<a class="headerlink" href="#id54" title="Link to this heading">¶</a></h2>
+<section id="id55">
+<h3>Fixes<a class="headerlink" href="#id55" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[mustache/markdown] template is now compatible with incremental
+changelog generation patterns. (fixes #80) [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id56">
+<h2>3.0.1 (2017-03-17)<a class="headerlink" href="#id56" title="Link to this heading">¶</a></h2>
+<section id="id57">
+<h3>Fixes<a class="headerlink" href="#id57" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support of commits with empty message. (fixes #76) [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id58">
+<h2>3.0.0 (2017-03-17)<a class="headerlink" href="#id58" title="Link to this heading">¶</a></h2>
+<section id="id59">
+<h3>New<a class="headerlink" href="#id59" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Template path can now be specified in <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code>. (fixes #73)
+[Valentin Lab]</p></li>
+<li><p>Support of already compiled regex object in config file. [Valentin
+Lab]</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">FileRegexSubst</span></code> to allow updatable incremental recipe.
+[Valentin Lab]</p>
+<p>With the added function and recipe as an example, you can update a
+current unreleased changelog additionaly to the traditional incremental
+behavior. <code class="docutils literal notranslate"><span class="pre">FileRegexSubst</span></code> might prove itself to be more powerfull
+tahn <code class="docutils literal notranslate"><span class="pre">FileInsertAtFirstRegexMatch</span></code> if you handle fairly complex regexes.</p>
+</li>
+<li><p>Configurable <code class="docutils literal notranslate"><span class="pre">publish</span></code> action to allow more automated changelog
+scenarios (fixes #39) [Valentin Lab]</p>
+<p>In particular, projects using incremental changelog generation can now
+fully automate the process by using a <code class="docutils literal notranslate"><span class="pre">publish</span></code> action that inserts
+new sections in an existing changelog file.</p>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">absolute_import</span></code> stance. [Valentin Lab]</p></li>
+<li><p>Added information on single package installation. [Valentin Lab]</p></li>
+<li><p>Major cleaning drived by coverage stats. [Valentin Lab]</p></li>
+<li><p>Add some usefull values in config environment. [Valentin Lab]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unreleased_version_label</span></code> can now be computed on the fly. [Valentin
+Lab]</p>
+<p>This can let you rename the first section about non yet tagged commit
+more precisely. For instance by using the commit hash or any git
+property.</p>
+</li>
+<li><p>Full tested windows support added. [Valentin Lab]</p></li>
+<li><p>Replaced <code class="docutils literal notranslate"><span class="pre">cat</span></code> construct by platform compatible
+<code class="docutils literal notranslate"><span class="pre">file_put_contents(..)</span></code>. [Valentin Lab]</p></li>
+<li><p>Reference config file is not anymore required. (fixes #54) [Valentin
+Lab]</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">revs</span></code> config file option allowing dynamically setting target
+rev-list. (fixes #61) [Valentin Lab]</p>
+<p>With this option, incremental changelog become more streamlined. With
+prior behavior, you had to know which was the last version prior to
+calling <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code>. Now, calling <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> alone can generate
+the exact last missing part thanks to this new config option.</p>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">sha1_short</span></code> to commit data for output engines. (fixes #49)
+[Valentin Lab]</p></li>
+<li><p>Templates now support direct path to files (fixes #46, fixes #63).
+[Héctor Pablos, Valentin Lab]</p>
+<p>Note that relative paths will be searched from the git toplevel.</p>
+</li>
+<li><p>Provide helpers to integrate <code class="docutils literal notranslate"><span class="pre">Co-Authored-By</span></code> trailer value. (fixes
+#69) [Valentin Lab]</p>
+<p>You can use now <code class="docutils literal notranslate"><span class="pre">commit[&quot;authors&quot;]</span></code> in templates to get a list of all
+authors of a commit. See the mako template <code class="docutils literal notranslate"><span class="pre">restructuredtext.tpl</span></code> for
+example of usage. Mustache templates gets also their own baked in joined
+list of authors through <code class="docutils literal notranslate"><span class="pre">commit[&quot;author_names_joined&quot;]</span></code>.</p>
+</li>
+<li><p>Provide complete access on commit API to templates (fixes #18)
+[Valentin Lab]</p></li>
+<li><p>Supports trailer key values support. [Valentin Lab]</p></li>
+<li><p>Windows compatibility. [Jean-Baptiste Lab, Laurent LAPORTE, Michele,
+Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id60">
+<h3>Changes<a class="headerlink" href="#id60" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Use tagger date when tags are annotated instead of commit date. (fixes
+#60) [Valentin Lab]</p></li>
+<li><p>Included <code class="docutils literal notranslate"><span class="pre">file_put_contents(..)</span></code> in main <code class="docutils literal notranslate"><span class="pre">gitchangelog.py</span></code>.
+[Valentin Lab]</p>
+<p>We will need this one in the next commits.</p>
+</li>
+<li><p>Remove usage of shell in git commands. [Valentin Lab]</p></li>
+<li><p>Remove multi-commands in tests to move towards windows compatibility.
+[Valentin Lab]</p>
+<p>Introduction of a single entrypoint for casting git commands.</p>
+</li>
+<li><p>Removed the need of the <code class="docutils literal notranslate"><span class="pre">show</span></code> positional argument. [Valentin Lab]</p></li>
+<li><p>Suppression of the obsolete <code class="docutils literal notranslate"><span class="pre">gitchangelog</span> <span class="pre">init</span></code> command. [Valentin
+Lab]</p></li>
+<li><p>Use iterators for reducing memory footprint when possible. (fixes #19)
+[Valentin Lab]</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">rest_py</span></code> engines will fully leverage iterators in the
+data structure by outputing content as it is generated, limiting
+overall footprint even more. Templates engines, on the other end,
+will render the full changelog in memory anyway before printing it.</p>
+</li>
+</ul>
+</section>
+<section id="id61">
+<h3>Fixes<a class="headerlink" href="#id61" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Separated tests in multiple files with tailored smaller setups.
+[Valentin Lab]</p></li>
+<li><p>Support closed or closing pipes on gitchangelog’s stdout gracefully.
+[Valentin Lab]</p>
+<p>Python would output some angry comments for instance when using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gitchangelog</span> <span class="o">|</span> <span class="n">head</span>
+</pre></div>
+</div>
+<p>Now it is much more graceful and will let the process finish earlier
+without complaining.</p>
+</li>
+<li><p>Remove message for <code class="docutils literal notranslate"><span class="pre">assertNoDiff(..)</span></code> as it prevents showing the
+actual diff. [Valentin Lab]</p></li>
+<li><p>Coverage stances are now compatible with windows. [Valentin Lab]</p></li>
+<li><p>Allow testing with unicode in python 2.7 on windows. [Valentin Lab]</p></li>
+<li><p>Prevent <code class="docutils literal notranslate"><span class="pre">IOError</span> <span class="pre">(Errno</span> <span class="pre">0)</span></code> in windows with python 2.7 when using
+codepage 65001. [Valentin Lab]</p>
+<p>This is same problem (and work-around) as
+<a class="reference external" href="http://stackoverflow.com/questions/7078232">http://stackoverflow.com/questions/7078232</a> . It seems to be a bug in
+code page 65001 (utf-8) on windows.</p>
+</li>
+<li><p>Force output encoding to ‘utf-8’ on windows for tests. [Valentin Lab]</p></li>
+<li><p>Protect correctly arguments for cross-platform compatibility.
+[Valentin Lab]</p></li>
+<li><p>Settings environment variable in a platform compatible way. [Valentin
+Lab]</p></li>
+<li><p>Avoid writing files with windows endlines in tests. [Valentin Lab]</p>
+<p>This is to prevent double endlines ending when first writing to
+template, then rendering the template.</p>
+</li>
+<li><p>Windows end of lines must be ignored when diffing. [Valentin Lab]</p></li>
+<li><p>Removed all use of <code class="docutils literal notranslate"><span class="pre">difflib</span></code> as it is now integrated in
+<code class="docutils literal notranslate"><span class="pre">unittest</span></code>. [Valentin Lab]</p></li>
+<li><p>Windows would not be able to delete git temporary directory in tests.
+[Valentin Lab]</p></li>
+<li><p>Windows compatibility issues with identifiers using ‘^’. [Valentin
+Lab]</p>
+<p>This uncovered an unexpected auto-correcting bug about empty revs
+specifiers that was fixed.</p>
+</li>
+<li><p>Windows support of <code class="docutils literal notranslate"><span class="pre">$tprog</span></code>’s calls in tests. [Valentin Lab]</p></li>
+<li><p>Too broad catching of <code class="docutils literal notranslate"><span class="pre">ShellError</span></code> exception. [Valentin Lab]</p></li>
+<li><p>Revlist would not work as expected on windows. [Valentin Lab]</p>
+<p>Windows does not support single quotes in command line as linux
+does. Fortunately there is no requirements on singles quotes so they
+were removed everywhere, ensuring a better windows compatibility.</p>
+</li>
+<li><p>Using revlists could display unwanted commits or no commits. [Valentin
+Lab]</p>
+<p>This was happening when specifying revisions that didn’t match
+commits tagged by tags matching the <code class="docutils literal notranslate"><span class="pre">tag_filter_regexp</span></code>.</p>
+</li>
+<li><p>Ability to specify rev-lists for partial changelogs creation was not
+working on windows. [Valentin Lab]</p></li>
+<li><p>Encoding issues prevented log to be outputed on specific windows
+versions. [Valentin Lab]</p></li>
+<li><p>Fixed encoding issue when reading UTF-8 git logs with a different
+default locale. [Valentin Lab]</p>
+<p>Windows platform were more likely to get hit by this bug as their
+default code page is not <code class="docutils literal notranslate"><span class="pre">utf-8</span></code>. It was fixed by using an explicit
+encoding when reading git logs. The default value for this encoding
+can now be set in the <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code>’s config file, per-repository.
+Although, this option should be only set in pathological configuration
+as the default behavior is to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">i18n.logOutputEncoding</span></code>
+when set, or if not set, <code class="docutils literal notranslate"><span class="pre">utf-8</span></code>, which is the default log encoding
+of git.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id62">
+<h2>2.5.1 (2015-11-11)<a class="headerlink" href="#id62" title="Link to this heading">¶</a></h2>
+<section id="id63">
+<h3>Fixes<a class="headerlink" href="#id63" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Reference config is used for defaults. [Tuukka Mustonen]</p></li>
+<li><p>Error message when called in non-git directories was not correctly
+displayed on python 3. [Valentin Lab]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--debug</span></code> argument would generate command line arguments parsing
+errors on python 2.7.  (fixes #66) [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id64">
+<h2>2.5.0 (2016-10-16)<a class="headerlink" href="#id64" title="Link to this heading">¶</a></h2>
+<section id="id65">
+<h3>New<a class="headerlink" href="#id65" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Hide unexpected traceback per default and allow them to be displayed
+if wanted. [Valentin Lab]</p></li>
+<li><p>New lines fixes in current default ReST format (fixes #62) [Stavros
+Korokithakis]</p>
+<p>These were modified:</p>
+<ul class="simple">
+<li><p>no new line between list element, except when there’s some
+body message to display, then use only one new line at the
+beginning of the body to issues with possible lists in body.</p></li>
+<li><p>one new line before section titles.</p></li>
+<li><p>two new lines before versions titles.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id66">
+<h3>Fixes<a class="headerlink" href="#id66" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Output warning on stderr in some weird cases (fixes #52) [Valentin
+Lab]</p>
+<p>If no tag are found in the repository, or no tag matches the filter
+regex, or if all commits are ignored… this will lead to disturbing but
+legit outputs from <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code>. So as to help diagnose what is
+going on, additional warnings are then printed when edge cases are
+encountered.</p>
+</li>
+<li><p>[mustache/restructuredtext] avoid HTML-escaping content of variables
+(fixes #64) [Mark Milstein]</p></li>
+</ul>
+</section>
+</section>
+<section id="id67">
+<h2>2.4.0 (2015-11-10)<a class="headerlink" href="#id67" title="Link to this heading">¶</a></h2>
+<section id="id68">
+<h3>New<a class="headerlink" href="#id68" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Add optional positional argument <code class="docutils literal notranslate"><span class="pre">REVLIST</span></code> to allow incremental
+changelog output (fixes #26) [Valentin Lab]</p>
+<p>See use cases documentations for more information.</p>
+</li>
+<li><p>Use now <code class="docutils literal notranslate"><span class="pre">argparse</span></code> for command line parsing. [Valentin Lab]</p>
+<p>This is to prepare introduction of more complex command parsing
+required by incremental changelog generation for instance.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id69">
+<h2>2.3.0 (2015-09-25)<a class="headerlink" href="#id69" title="Link to this heading">¶</a></h2>
+<section id="id70">
+<h3>Fixes<a class="headerlink" href="#id70" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Nasty hidden bug that would break python3 (fixes #27) [Valentin Lab]</p>
+<p>Actually this bug was revealed by python3 random hashes (thanks to
+&#64;rschoon for the hint) and could be reproduced on python2.7 with <code class="docutils literal notranslate"><span class="pre">-R</span></code>
+mode.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code> command actually will behave differently if given a tag
+reference and print random unexpected information before using the
+format string. This would prefix a lot of mess to the first field being
+asked in the format string.</p>
+<p>And this first field is dependent on the internal order of a dict, and
+this order is not important as such, and so nothing was done on this
+part.</p>
+<p>On python2.7, somehow, it would always be the same order that revealed
+to have no consequence (probably one of the rare field not used in
+current changelogs).</p>
+<p>Python3 or Python2.7 -R would shuffle this order and then trigger the
+error whenever this prefix would be appended to actually important
+fields that went into some further processing (as casted to int for
+the timestamp for instance).</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id71">
+<h2>2.2.1 (2015-06-09)<a class="headerlink" href="#id71" title="Link to this heading">¶</a></h2>
+<section id="id72">
+<h3>Fixes<a class="headerlink" href="#id72" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Fix: doc: <code class="docutils literal notranslate"><span class="pre">ìnclude_merge</span></code> options was wrongly typed in sample config
+files (reported by &#64;tuukkamustonen, fixed #29). [Valentin Lab]</p></li>
+<li><p>Updated doc to reflec that there are no support of windows for now.
+(fixes #28) [Valentin Lab]</p>
+<p>Actually windows will fail on <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> call. (see #28)</p>
+</li>
+<li><p>Remove commit’s meta-information footer from changelog output. (fixes
+#25) [Valentin Lab]</p>
+<p>Some various tools (thinking of Gerrit) might leave some
+meta-information in the footer of your commit message’s body that you do
+not want to be repeated in your changelog. So all values in the footer
+are removed (This concerns <code class="docutils literal notranslate"><span class="pre">Change-Id</span></code>, <code class="docutils literal notranslate"><span class="pre">Acked-by</span></code>, <code class="docutils literal notranslate"><span class="pre">CC</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Signed-off-by</span></code>, <code class="docutils literal notranslate"><span class="pre">Bug</span></code> … and any other value).</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id73">
+<h2>2.2.0 (2015-01-27)<a class="headerlink" href="#id73" title="Link to this heading">¶</a></h2>
+<section id="id74">
+<h3>New<a class="headerlink" href="#id74" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">body</span></code> and an sole <code class="docutils literal notranslate"><span class="pre">Other</span></code> section to reference tests.
+[Valentin Lab]</p></li>
+<li><p>Provide support for older config file format. [Valentin Lab]</p></li>
+<li><p>Added ‘octobercms-plugin’ mako template. (fixes #16) [Valentin Lab]</p></li>
+<li><p>Added a new test to run at least once all provided templates.
+[Valentin Lab]</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">body_process</span></code> and <code class="docutils literal notranslate"><span class="pre">subject_process</span></code> options. (fixes #22)
+[Valentin Lab]</p>
+<p>These options superseeds <code class="docutils literal notranslate"><span class="pre">replace_regexps</span></code> and <code class="docutils literal notranslate"><span class="pre">body_split_regexp</span></code>
+as they provide a full control over text transformation of the subject
+or the body of the commit before they get included in the changelog.</p>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">include_merge</span></code> option to filter out merge commit. [Casey
+Duquette]</p></li>
+<li><p>Support to provide unlimited revisions for <code class="docutils literal notranslate"><span class="pre">.log()</span></code>. [Valentin Lab]</p></li>
+<li><p>Added a simple changelog format for tests. [Valentin Lab]</p>
+<p>This formats is intended not to change, and to quickly visualize and
+compare changelogs output.</p>
+</li>
+<li><p>Limit test imprints. [Valentin Lab]</p>
+<p>Removed the specific pre-configured log history from common git case.
+Offer a common just inited git case.</p>
+</li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">raw_renderer</span></code> for test. [Valentin Lab]</p>
+<p>This should be used to restrict the perimeter of tests. This mainly
+removes the formatting concerns out when needed.</p>
+</li>
+</ul>
+</section>
+<section id="id75">
+<h3>Changes<a class="headerlink" href="#id75" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Produce a more linear commit history (fixes #14) [Casey Duquette]</p>
+<p>Instead of retrieving the git log ordered by date, retrieve the log as
+a difference between tags to produce a more accurate view of changes
+between releases.</p>
+<p>For instance, imagine this git graph:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="mi">6</span><span class="n">c0fd62</span> <span class="p">(</span><span class="n">HEAD</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="n">sprint</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">smoke</span><span class="p">,</span> <span class="n">smoke</span><span class="p">,</span> <span class="n">develop</span><span class="p">)</span>
+<span class="o">*</span>   <span class="mi">5292</span><span class="n">a28</span> <span class="n">Merge</span> <span class="n">back</span> <span class="n">to</span> <span class="n">develop</span>
+<span class="o">|</span>\
+<span class="o">|</span> <span class="o">*</span> <span class="mi">6612</span><span class="n">fce</span> <span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="n">sprint</span><span class="o">-</span><span class="mf">5.1</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">HEAD</span><span class="p">,</span> <span class="n">master</span><span class="p">)</span> <span class="nb">super</span> <span class="n">important</span> <span class="n">hotfix</span>
+<span class="o">*</span> <span class="o">|</span> <span class="mi">7</span><span class="n">d6286f</span> <span class="n">more</span> <span class="n">development</span> <span class="n">work</span>
+<span class="o">*</span> <span class="o">|</span> <span class="mi">8</span><span class="n">c1e3d6</span> <span class="n">continued</span> <span class="n">development</span> <span class="n">work</span>
+<span class="o">*</span> <span class="o">|</span> <span class="n">fa3d4bd</span> <span class="n">development</span> <span class="n">work</span>
+<span class="o">|/</span>
+<span class="o">*</span> <span class="n">ec1a19c</span> <span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="n">sprint</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Previously, commits <code class="docutils literal notranslate"><span class="pre">fa3d4bd</span></code>, <code class="docutils literal notranslate"><span class="pre">8c1e3d6</span></code>, <code class="docutils literal notranslate"><span class="pre">7d6286f</span></code> that
+occurred on the develop branch before the hotfix that led to tagging
+<code class="docutils literal notranslate"><span class="pre">sprint-5.1</span></code>, were captured in the changelog under release
+<code class="docutils literal notranslate"><span class="pre">sprint-5.1</span></code> because of the order of the commits. But it is obvious
+that these commits were not included in a release until
+<code class="docutils literal notranslate"><span class="pre">sprint-6</span></code>. The new method of calculating the changelog will capture
+this and reflect it properly, assigning those changes to <code class="docutils literal notranslate"><span class="pre">sprint-6</span></code>.</p>
+</li>
+<li><p>Provide a helper to get <code class="docutils literal notranslate"><span class="pre">GitCommit</span></code> objects out of <code class="docutils literal notranslate"><span class="pre">GitRepos</span></code>.
+[Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id76">
+<h3>Fixes<a class="headerlink" href="#id76" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Last commit was omitted (fixes #23). [Valentin Lab]</p></li>
+<li><p>Bogus messages when template didn’t exist. [Valentin Lab]</p>
+<p>Refactored out the common code and corrected the bad error message.</p>
+</li>
+<li><p>Removed hypothetical memory exhaust while parsing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.
+[Valentin Lab]</p>
+<p>Parse stdout as it’s produced by git log by chunks.</p>
+</li>
+<li><p>Replacing standard exception is not so valuable and can hide real
+info. [Valentin Lab]</p>
+<p><code class="docutils literal notranslate"><span class="pre">wrap</span></code> facility already provide a readable exception message. And
+the exception could come from other issues than bad identifier. Thus,
+we should keep the original message.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id77">
+<h2>2.1.2 (2014-04-25)<a class="headerlink" href="#id77" title="Link to this heading">¶</a></h2>
+<section id="id78">
+<h3>Fixes<a class="headerlink" href="#id78" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Fail with error message when config path exists but is not a file.
+(fixes #11) [Casey Duquette]</p>
+<p>For example, the config file could be a directory.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id79">
+<h2>2.1.1 (2014-04-15)<a class="headerlink" href="#id79" title="Link to this heading">¶</a></h2>
+<section id="id80">
+<h3>Fixes<a class="headerlink" href="#id80" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Removed exception if you had file which name that matched a tag’s
+name. (fixes #9) [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id81">
+<h2>2.1.0 (2014-03-25)<a class="headerlink" href="#id81" title="Link to this heading">¶</a></h2>
+<section id="id82">
+<h3>New<a class="headerlink" href="#id82" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Python3 compatibility. [Valentin Lab]</p></li>
+<li><p>Much greater performance on big repository by issuing only one shell
+command for all the commits. (fixes #7) [Valentin Lab]</p></li>
+<li><p>Added a complete reference test. [Valentin Lab]</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">init</span></code> argument to create a full <code class="docutils literal notranslate"><span class="pre">.gitchangelog.rc</span></code> in current
+git repository. [Valentin Lab]</p></li>
+<li><p>Remove optional first argument that could specify the target git
+repository to consider. [Valentin Lab]</p>
+<p>This is to remove duplicate way to do things. <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> should be run
+from within a git repository.</p>
+<p>Any usage of <code class="docutils literal notranslate"><span class="pre">gitchangelog</span> <span class="pre">MYREPO</span></code> can be written <code class="docutils literal notranslate"><span class="pre">(cd</span> <span class="pre">MYREPO;</span>
+<span class="pre">gitchangelog)</span></code>.</p>
+</li>
+<li><p>Use a standard formatting configuration by default. [Valentin Lab]</p>
+<p>A default standard way of formatting is used if you don’t provide
+any configuration file. Additionaly, any option you define in your
+configuration file will be added “on-top” of the default configuration
+values. This can reduce config file size or even remove the need of
+one if you follow the standard.</p>
+<p>And, thus, you can tweak the standard for your needs by providing only partial
+configuration file. See tests for examples.</p>
+</li>
+<li><p>Remove user or system wide configuration file lookup. [Valentin Lab]</p>
+<p>This follows reflexion that you build a changelog for a repository and
+that the rules to make the changelog should definitively be explicit and
+thus belongs to the repository itself.</p>
+<p>Not a justification, but removing user and system wide configuration files
+also greatly simplifies testability.</p>
+</li>
+</ul>
+</section>
+<section id="id83">
+<h3>Changes<a class="headerlink" href="#id83" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Moved commit’s attribute retrieval out of <code class="docutils literal notranslate"><span class="pre">__init__</span></code> towards
+<code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>. [Valentin Lab]</p>
+<p>This allows to fetch attribute on demand. This won’t have any performance hit yet as
+all GitCommit will trigger the full fetch at least once for now.</p>
+<p>But we now can initialize the GitCommit attributes with other means. And if we don’t use
+an attribute that wasn’t computed, we will spare a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code> call.</p>
+</li>
+<li><p>Code optimization. [Valentin Lab]</p>
+<p>To be noted, we don’t seem to need more than identifiers in tags. The
+upcoming <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code> implementation in GitCommit will remove
+useless <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code> computations for these commits it seems.</p>
+</li>
+<li><p>Refactored out the formatting characters from GIT. [Valentin Lab]</p>
+<p>This is to prepare to clean __init__.py from any initilisation process.
+This will path the way to permit GitCommit being initilised with full
+values in the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> scenario coming in a few commits.</p>
+</li>
+<li><p>Move the reversing python code towards git command line code.
+[Valentin Lab]</p>
+<p>Actual performance improvement is… un-noticeable. Questioning the if this
+is really a good patch because it introduce usage of advanced (recent) options</p>
+</li>
+</ul>
+</section>
+<section id="id84">
+<h3>Fixes<a class="headerlink" href="#id84" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Encoding issues with non-ascii chars. [Valentin Lab]</p></li>
+<li><p>Avoid using pipes for windows compatibility and be more performant by
+avoiding to unroll full log to get the last commit. [Valentin Lab]</p></li>
+<li><p>Better support of exotic features of git config file format. (fixes
+#4) [Valentin Lab]</p>
+<p>git config file format allows ambiguous keys:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>[a “b.c”]</dt><dd><p>d = foo</p>
+</dd>
+<dt>[a.b “c”]</dt><dd><p>e = foo</p>
+</dd>
+<dt>[a.b.c]</dt><dd><p>f = foo</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Are all valid. So code was simplified to use directly <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code>.
+This simplification will deal also with cases where section could be
+attributed values:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>[a “b”]</dt><dd><p>c = foo</p>
+</dd>
+<dt>[a]</dt><dd><p>b = foo</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>By avoiding to parse the entire content of the file, and relying on
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> implementation we ensure to remain compatible and not
+re-implement the parsing of this file format.</p>
+</li>
+<li><p>Gitchangelog shouldn’t fail if it fails to parse your git config.
+[Michael Hahn]</p></li>
+</ul>
+</section>
+</section>
+<section id="id85">
+<h2>2.0.0 (2013-08-20)<a class="headerlink" href="#id85" title="Link to this heading">¶</a></h2>
+<section id="id86">
+<h3>New<a class="headerlink" href="#id86" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">mako</span></code> output engine with standard ReSTructured text format
+for reference. [Valentin Lab]</p></li>
+<li><p>Added some information on path lookup scheme to find
+<code class="docutils literal notranslate"><span class="pre">gitchangelog.rc</span></code> configuration file. [Valentin Lab]</p></li>
+<li><p>Added templating system and examples with <code class="docutils literal notranslate"><span class="pre">mustache</span></code> template
+support for restructured text and markdown output format. [David
+Loureiro]</p></li>
+<li><p>Separated creation of the data structure and its rendering. [David
+Loureiro]</p>
+<p>This commit prepares for any templating system to take back the job of rendering.</p>
+</li>
+</ul>
+</section>
+<section id="id87">
+<h3>Changes<a class="headerlink" href="#id87" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">pkg</span></code> and <code class="docutils literal notranslate"><span class="pre">dev</span></code> commits from default sample changelog
+output. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id88">
+<h3>Fixes<a class="headerlink" href="#id88" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Some error message weren’t written on stderr. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id89">
+<h2>1.1.0 (2012-05-03)<a class="headerlink" href="#id89" title="Link to this heading">¶</a></h2>
+<section id="id90">
+<h3>New<a class="headerlink" href="#id90" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>New config file lookup scheme which adds a new possible default
+location <code class="docutils literal notranslate"><span class="pre">.gitchangelog.rc</span></code> in the root of the git repository.
+[Valentin Lab]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GitRepos</span></code> object now give access to directory informations and
+whole git config read access. [Valentin Lab]</p></li>
+<li><p>Added a new section to get a direct visual of <code class="docutils literal notranslate"><span class="pre">gitchangelog</span></code> output.
+Reworded some sentences and did some other minor additions. [Valentin
+Lab]</p></li>
+</ul>
+</section>
+<section id="id91">
+<h3>Changes<a class="headerlink" href="#id91" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Removed old <code class="docutils literal notranslate"><span class="pre">gitchangelog.rc.sample</span></code> in favor of the new documented
+one. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id92">
+<h3>Fixes<a class="headerlink" href="#id92" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>The sample file was not coherent with the doc, and is now accepting
+‘test’ and ‘doc’ audience. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id93">
+<h2>1.0.2 (2012-05-02)<a class="headerlink" href="#id93" title="Link to this heading">¶</a></h2>
+<section id="id94">
+<h3>New<a class="headerlink" href="#id94" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added a new sample file heavily documented. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id95">
+<h3>Changes<a class="headerlink" href="#id95" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Changed default config file name towards <code class="docutils literal notranslate"><span class="pre">~/.gitchangelog.rc</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">~/.git-changelog.rc</span></code>. [Valentin Lab]</p></li>
+<li><p>Added a link to PyPI in the doc. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id96">
+<h3>Fixes<a class="headerlink" href="#id96" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ignore_regexps</span></code> where bogus and would match only from the beginning
+of the line. [Valentin Lab]</p></li>
+<li><p>Display author date rather than commit date. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id97">
+<h2>1.0.1 (2011-06-29)<a class="headerlink" href="#id97" title="Link to this heading">¶</a></h2>
+<section id="id98">
+<h3>Fixes<a class="headerlink" href="#id98" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>ReST title consistency corrected in docs. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id99">
+<h2>1.0.0 (2011-06-29)<a class="headerlink" href="#id99" title="Link to this heading">¶</a></h2>
+<section id="id100">
+<h3>New<a class="headerlink" href="#id100" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">GITCHANGELOG_CONFIG_FILENAME</span></code> environ variable (if set) to get
+the default location of config file. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id101">
+<h3>Changes<a class="headerlink" href="#id101" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Extracted the main code in a function <code class="docutils literal notranslate"><span class="pre">main</span></code> [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id102">
+<h3>Fixes<a class="headerlink" href="#id102" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Adds a period to subject message only if last char of subject is alpha
+numeric. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id103">
+<h2>0.1.4 (2011-06-29)<a class="headerlink" href="#id103" title="Link to this heading">¶</a></h2>
+<section id="id104">
+<h3>Changes<a class="headerlink" href="#id104" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">stdin</span></code> from <code class="docutils literal notranslate"><span class="pre">cmd()</span></code> function. [Valentin Lab]</p></li>
+<li><p>Various small code enhancements and cleanup. [Valentin Lab]</p></li>
+<li><p>Forced MULTILINE regexps on <code class="docutils literal notranslate"><span class="pre">paragraph_wrap</span></code> which is used to wrap
+body of commit messages. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id105">
+<h3>Fixes<a class="headerlink" href="#id105" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fixed the <code class="docutils literal notranslate"><span class="pre">body_split_regexp</span></code> to keep title words. [Valentin Lab]</p></li>
+<li><p>Corrected big bad bug due to <code class="docutils literal notranslate"><span class="pre">Popen.wait()</span></code> usage instead of
+<code class="docutils literal notranslate"><span class="pre">Popen.communicate()</span></code> [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id106">
+<h2>0.1.3 (2011-06-29)<a class="headerlink" href="#id106" title="Link to this heading">¶</a></h2>
+<section id="id107">
+<h3>New<a class="headerlink" href="#id107" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Can now compare two commit. [Valentin Lab]</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">LAST</span></code> virtual identifier to get the last element coming from
+<code class="docutils literal notranslate"><span class="pre">HEAD</span></code>. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id108">
+<h3>Fixes<a class="headerlink" href="#id108" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Last revision is now displayed in changelog. [Valentin Lab]</p>
+<p>new: dev: added new option <code class="docutils literal notranslate"><span class="pre">tag_filter_regexp</span></code> to filter tags we want to use in the changelog.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id109">
+<h2>0.1.2 (2011-06-29)<a class="headerlink" href="#id109" title="Link to this heading">¶</a></h2>
+<section id="id110">
+<h3>New<a class="headerlink" href="#id110" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Sections in changelog are now in the order given in <code class="docutils literal notranslate"><span class="pre">git-</span>
+<span class="pre">changelog.rc</span></code> in the <code class="docutils literal notranslate"><span class="pre">section_regexps</span></code> option. [Valentin Lab]</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">body_split_regexp</span></code> option to attempts to format correctly
+body of commit. [Valentin Lab]</p></li>
+<li><p>Use a list of tuple instead of a dict for <code class="docutils literal notranslate"><span class="pre">section_regexps</span></code> to be
+able to manage order between section on find match. [Valentin Lab]</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">unreleased_version_label</span></code> option in <code class="docutils literal notranslate"><span class="pre">git-changelog.rc</span></code> to
+change label of not yet released code. [Valentin Lab]</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">git-changelog</span></code> section in <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> world appropriately.
+[Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id111">
+<h3>Changes<a class="headerlink" href="#id111" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Commented code to toggle doctest mode. [Valentin Lab]</p></li>
+<li><p>Cosmetic removal of trailing whitespaces. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id112">
+<h3>Fixes<a class="headerlink" href="#id112" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Doctests were failing on this. [Valentin Lab]</p></li>
+<li><p>Bad sorting of tags (alphanumerical). Changed to commit date sort.
+[Valentin Lab]</p></li>
+<li><p>Support of empty commit message. [Valentin Lab]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span></code> in later versions seems to fail on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">&lt;key&gt;</span></code> with
+errlvl 255, that was not supported. [Valentin Lab]</p></li>
+<li><p>Removed Traceback when there were no tags at all in the current git
+repository. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id113">
+<h2>0.1.1 (2011-06-29)<a class="headerlink" href="#id113" title="Link to this heading">¶</a></h2>
+<section id="id114">
+<h3>New<a class="headerlink" href="#id114" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added section classifiers (ie: New, Change, Bugs) and updated the
+sample rc file. [Valentin Lab]</p></li>
+<li><p>Added a succint <code class="docutils literal notranslate"><span class="pre">--help</span></code> support. [Valentin Lab]</p></li>
+</ul>
+</section>
+<section id="id115">
+<h3>Fixes<a class="headerlink" href="#id115" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fixed case where exception was thrown if two tags are on the same
+commit. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+<section id="id116">
+<h2>0.1.0 (2011-06-29)<a class="headerlink" href="#id116" title="Link to this heading">¶</a></h2>
+<section id="id117">
+<h3>New<a class="headerlink" href="#id117" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">git-changelog</span></code> which converts git log history to a changelog
+provided a config file. [Valentin Lab]</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme_include.html">The canonical changelog tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/generate-changelog.html">Changelog Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-config.html">Contents of the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-config.html#some-hook-descriptions">Some Hook Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pre-commit-usage.html">Using Pre-Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">gitchangelog</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">3.2.2 (2024-03-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.2.1 (2025-03-31)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">3.2.0 (2024-03-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">3.1.2 (2022-10-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">3.1.1 (2022-10-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">3.1.0 (2022-10-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">3.0.10 (2022-09-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">3.0.9 (2022-04-13)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id26">3.0.8 (2021-11-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id29">3.0.7 (2021-02-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id33">3.0.6 (2021-02-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id37">3.0.5 (2021-01-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id42">3.0.4-4 (2020-12-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id45">3.0.4-3 (2020-12-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id48">3.0.4-2 (2020-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id49">3.0.4-1 (2020-11-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id50">3.0.4 (2018-03-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id52">3.0.3 (2017-04-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id54">3.0.2 (2017-04-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id56">3.0.1 (2017-03-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id58">3.0.0 (2017-03-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id62">2.5.1 (2015-11-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id64">2.5.0 (2016-10-16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id67">2.4.0 (2015-11-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id69">2.3.0 (2015-09-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id71">2.2.1 (2015-06-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id73">2.2.0 (2015-01-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id77">2.1.2 (2014-04-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id79">2.1.1 (2014-04-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id81">2.1.0 (2014-03-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id85">2.0.0 (2013-08-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id89">1.1.0 (2012-05-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id93">1.0.2 (2012-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id97">1.0.1 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id99">1.0.0 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id103">0.1.4 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id106">0.1.3 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id109">0.1.2 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id113">0.1.1 (2011-06-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id116">0.1.0 (2011-06-29)</a></li>
+</ul>
+</li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api/gitchangelog.gitchangelog.html"
+                          title="previous chapter">gitchangelog.gitchangelog module</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api/gitchangelog.gitchangelog.html" title="gitchangelog.gitchangelog module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">gitchangelog 3.2.3.dev3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Changelog</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025 Stephen Arnold.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

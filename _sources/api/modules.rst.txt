@@ -1,0 +1,7 @@
+gitchangelog
+============
+
+.. toctree::
+   :maxdepth: 4
+
+   gitchangelog
