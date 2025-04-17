@@ -1,5 +1,5 @@
-The gitchangelog tool
-=====================
+gitchangelog docs
+=================
 
 .. git_commit_detail::
     :branch:
