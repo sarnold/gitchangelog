@@ -147,7 +147,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       with:
         python-version: ${{ env.PYTHON }}
 
@@ -157,7 +157,7 @@ jobs:
         pip install tox
 
     - name: Setup old python for test
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: 3.8
 
