@@ -17,7 +17,7 @@ jobs:
       actions: read # only on private (maybe?) required to get the Action run status
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Run bandit
       uses: VCTLabs/bandit-report-artifacts@edaffcb8ce8618e97d6838d7a0535331927e6d77  # v3
