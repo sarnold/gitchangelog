@@ -21,7 +21,7 @@ jobs:
       path: ${{ steps.analyze.outputs.path }}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 0
 
@@ -84,7 +84,7 @@ jobs:
     if: ${{ github.event_name == 'push' }}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         ref: badges
         path: badges
