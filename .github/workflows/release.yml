@@ -38,7 +38,7 @@ jobs:
           fetch-depth: 0
 
       # download all artifacts to project dir
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
 
       - name: check artifacts
         run: |
