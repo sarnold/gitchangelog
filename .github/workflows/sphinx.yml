@@ -18,7 +18,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - uses: actions/setup-python@v6
+    - uses: actions/setup-python@v7
       with:
         python-version: '3.12'
 
@@ -43,7 +43,7 @@ jobs:
 
     - name: Deploy docs to gh-pages
       if: ${{ github.event_name == 'push' }}
-      uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f  # v4.8.0
+      uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445  # v4.9.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
