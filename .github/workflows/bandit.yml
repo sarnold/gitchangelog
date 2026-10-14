@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v7
 
     - name: Run bandit
-      uses: VCTLabs/bandit-report-artifacts@edaffcb8ce8618e97d6838d7a0535331927e6d77  # v3
+      uses: VCTLabs/bandit-report-artifacts@669c2f90aa984b19aac417a30f75f5363be1c1e8  # v3
       with:
         project_path: src
         ignore_failure: false
